@@ -1,0 +1,52 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-image: url(Various_gears.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: Tahoma, sans-serif;
+}
+
+h1{
+	margin: 10px 70px;
+	text-align: center;
+}
+
+button#myBtn{
+	width: 120px;
+	height: 50px;
+	font-weight: bold;
+	position: absolute;
+	top: 80px;
+	left: 10px;
+}
+
+button#removeBtn{
+	position: absolute;
+	top: 580px;
+	left: 10px;
+	width: 120px;
+	height: 50px;
+	font-weight: bold;
+}
+
+p#p1{
+	position: absolute;
+	top: 180px;
+	left: 180px;
+}
+
+p#p2{
+	position: absolute;
+	top: 400px;
+	left: 530px;
+}
+
+p#p3{
+	position: absolute;
+	top: 310px;
+	left: 800px;
+}

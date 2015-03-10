@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Rollover with a Mouse Events</title>
+		<link href="styles/style.css" rel="stylesheet"/>
+	</head>
+	
+	<body>
+		<script type="text/javascript" defer>
+			function mouseOver(){
+				if(document.images){
+					var image1 = new Image();      
+					image1.src = "resources/Colored_frames.jpg";
+					document.myImage.src=image1.src;
+				}
+			}
+			
+			function mouseOut(){
+				if(document.images){
+					var image2 = new Image();     
+					image2.src = "resources/Coloured_paint_strokes.jpg";
+					document.myImage.src=image2.src;
+				}
+			}
+			
+			function stop(){
+				var image3 = new Image();
+				image3.src = "resources/Chemistry_Lab_clip_art_hight.png";
+				document.myImage.src=image3.src;
+				var text = "Click on image!"
+				document.getElementById("text").innerHTML = text;
+				document.getElementById("text").style.color = "red";
+			}
+			
+			function clickOnImage(){
+				if(document.getElementById("text").style.color == "red"){
+					var image = document.getElementById("image");
+					image.innerHTML='Ooops! Test finished!';
+					document.getElementById("text").innerHTML = "";
+					document.getElementById("btn").style.display = 'none';
+					var d = new Date().toDateString();
+					document.getElementById("date").innerHTML = d;
+					document.getElementById("date").style.fontSize = "20px";
+				}
+			}
+		</script>
+		<p id="date"></p>
+		<p id="text">Move your mouse over the image to mix colors...</p>
+		<a id="image" href="#" onMouseOver="mouseOver();" onMouseOut="mouseOut();" onclick="clickOnImage();">
+			<img name="myImage" src="resources/Chemistry_science.jpg" title="Move your mouse" width="900" height="580"/>
+		</a>
+		<form>
+			<input type="button" id="btn" value="Stop" onclick="stop();" />
+		</form>
+	</body>
+</html>

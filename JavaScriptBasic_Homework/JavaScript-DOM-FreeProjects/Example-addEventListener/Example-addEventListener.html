@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Example-addEventListener</title>
+		<link href="Example-addEventListener.css" rel="stylesheet"/>
+	</head>
+	
+	<body>
+		<h1 id="h1"></h1>
+		<button id="myBtn">Try it</button>
+		<p id="p1"></p>
+		<p id="p2"></p>
+		<p id="p3"></p>
+		<button id="removeBtn">Remove</button>
+
+		<script>
+		
+			var btn1 = document.getElementById("myBtn");
+			btn1.addEventListener("mouseover", mOver);
+			btn1.addEventListener("click", mClick);
+			btn1.addEventListener("mouseout", mOut);
+			btn1.style.fontSize = "25px";
+			btn1.style.color = "red";
+			
+			var btn2 = document.getElementById("removeBtn");
+			btn2.addEventListener("mouseover", removeOver);
+			btn2.addEventListener("click", removeHandler);
+			btn2.addEventListener("mouseout", removeOut);
+			btn2.style.fontSize = "25px";
+			btn2.style.color = "red";
+			
+			document.getElementById("h1").style.color = "red";
+			
+			function mOver() {
+				var textTitle = "This example uses the addEventListener() method to add many events on the same button.";
+				document.getElementById("h1").style.color = "#424041";
+				document.getElementById("h1").style.fontSize = "30px";
+				document.getElementById("h1").innerHTML = textTitle;
+			
+				var text1 = "Moused over!";
+				document.getElementById("p1").style.fontSize = "20px";
+				document.getElementById("p1").style.color = "#DAB14F";
+				document.getElementById("p1").innerHTML = text1;
+				document.getElementById("myBtn").style.fontSize = "16px";
+				document.getElementById("myBtn").style.background = "#DAB14F";
+				document.getElementById("myBtn").innerHTML = "Moused over<br>Click me!";
+				document.getElementById("p2").innerHTML = "";
+				document.getElementById("p3").innerHTML = "";
+			}
+
+			function mClick() {
+				var text2 = "Clicked! ";
+				document.getElementById("p2").style.fontSize = "40px";
+				document.getElementById("p2").style.color = "#A0A1A4";
+				document.getElementById("p2").innerHTML += text2;
+				document.getElementById("myBtn").style.fontSize = "16px";
+				document.getElementById("myBtn").style.background = "#DCDCDC";
+				document.getElementById("myBtn").style.color = "#76450B";
+				document.getElementById("myBtn").innerHTML = "Click me again!";
+				document.getElementById("p1").innerHTML = "";
+				document.getElementById("p3").innerHTML = "";
+				
+				document.getElementById("h1").style.color = "#DAB14F";
+			}
+
+			function mOut() {
+				var text3 = "Moused out!";
+				document.getElementById("p3").style.fontSize = "30px";
+				document.getElementById("p3").style.color = "#323031";
+				document.getElementById("p3").innerHTML = text3;
+				document.getElementById("myBtn").style.fontSize = "16px";
+				document.getElementById("myBtn").style.background = "#A0A1A4";
+				document.getElementById("myBtn").style.color = "white";
+				document.getElementById("myBtn").innerHTML = "Moused out";
+				document.getElementById("p1").innerHTML = "";
+				document.getElementById("p2").innerHTML = "";
+			}
+			
+			function removeHandler() {
+				document.getElementById("myBtn").removeEventListener("mouseover", mOver);
+				document.getElementById("myBtn").removeEventListener("click", mClick);
+				document.getElementById("myBtn").removeEventListener("mouseout", mOut);
+				document.getElementById("removeBtn").removeEventListener("mouseover", removeOver);
+				document.getElementById("removeBtn").removeEventListener("mouseout", removeOut);
+				document.getElementById("removeBtn").style.display = "none";
+				document.getElementById("myBtn").style.display = "none";
+				document.getElementById("p3").innerHTML = "";
+				document.getElementById("h1").innerHTML = "You removed EventListener!";
+			}
+			
+			function removeOver(){
+				document.getElementById("removeBtn").style.background = "#A0A1A4";
+				document.getElementById("removeBtn").style.color = "white";
+				document.getElementById("removeBtn").style.fontSize = "20px";
+				document.getElementById("h1").style.fontSize = "30px";
+				document.getElementById("h1").innerHTML = "If you click on 'Remove-Button' you will remove EventListener.";
+				document.getElementById("p3").style.color = "red";
+				document.getElementById("p3").style.fontSize = "60px";
+				document.getElementById("p3").innerHTML = "Moused over 'Remove-Button'!";
+			}
+			
+			function removeOut(){
+				document.getElementById("removeBtn").style.background = "#DCDCDC";
+				document.getElementById("removeBtn").style.color = "#424041";
+				document.getElementById("p3").innerHTML = "";
+			}
+		</script>
+
+	</body>
+</html>

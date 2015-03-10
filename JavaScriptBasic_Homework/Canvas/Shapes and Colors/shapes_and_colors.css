@@ -1,0 +1,27 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+      
+#movement {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 160px;
+	height: 150px;
+	border-radius: 80px;
+	background: rgba(252, 201, 118, 0.5);
+	font-size: 25px;
+	color: #FCC976;
+	border:solid 15px #FFFF9E;
+}
+      
+#container {
+    background-image: url("05.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+    display: inline-block;
+    overflow: hidden;
+    height: 685px;
+    width: 1280px;
+}

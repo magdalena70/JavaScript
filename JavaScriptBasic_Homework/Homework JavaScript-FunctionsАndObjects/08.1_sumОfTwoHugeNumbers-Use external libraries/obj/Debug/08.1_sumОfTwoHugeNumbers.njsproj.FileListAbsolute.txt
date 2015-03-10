@@ -1,0 +1,2 @@
+C:\Users\acer\Documents\GitHub\JavaScript-Homework\Homework JavaScript-FunctionsАndObjects\08.1_sumОfTwoHugeNumbers\obj\Debug\08.1_sumОfTwoHugeNumbers.njsprojResolveAssemblyReference.cache
+C:\Users\acer\Documents\GitHub\JavaScript-Homework\Homework JavaScript-FunctionsАndObjects\08.1_sumОfTwoHugeNumbers\bin\Microsoft.NodejsTools.WebRole.dll
