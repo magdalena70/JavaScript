@@ -1,4 +1,4 @@
-﻿function printArgsInfo(){
+﻿function printArgsInfo() {
     
     for (var i in arguments) {
         var type = typeof arguments[i];

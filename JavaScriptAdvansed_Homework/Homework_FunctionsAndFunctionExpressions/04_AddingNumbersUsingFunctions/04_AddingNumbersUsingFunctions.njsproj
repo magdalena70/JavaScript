@@ -3,17 +3,16 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <Name>01_functionArguments</Name>
-    <RootNamespace>Homework_FunctionsAndFunctionExpressions</RootNamespace>
+    <Name>04_AddingNumbersUsingFunctions</Name>
+    <RootNamespace>04_AddingNumbersUsingFunctions</RootNamespace>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>377fbd57-e386-4d8a-bbfe-3f50053dab3f</ProjectGuid>
-    <ProjectHome>
-    </ProjectHome>
-    <StartupFile>01_functionArguments.js</StartupFile>
+    <ProjectGuid>fd5e0d43-9723-493b-b088-dfb2089ed87c</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>04_AddingNumbersUsingFunctions.js</StartupFile>
     <StartWebBrowser>False</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -31,7 +30,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="01_functionArguments.js" />
+    <Compile Include="04_AddingNumbersUsingFunctions.js" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
 </Project>
