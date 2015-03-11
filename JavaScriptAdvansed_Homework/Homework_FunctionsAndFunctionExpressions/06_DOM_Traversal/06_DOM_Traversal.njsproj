@@ -3,16 +3,16 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <Name>01_functionArguments</Name>
-    <RootNamespace>01_functionArguments</RootNamespace>
+    <Name>06_DOM_Traversal</Name>
+    <RootNamespace>06_DOM_Traversal</RootNamespace>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>1b4985d7-0966-4cd6-835d-83017a3fae29</ProjectGuid>
+    <ProjectGuid>086d7ab1-a7d3-425d-b197-a4df69585a2e</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>01_functionArguments.js</StartupFile>
+    <StartupFile>06_DOM_Traversal.js</StartupFile>
     <StartWebBrowser>False</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -30,7 +30,8 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="01_functionArguments.js" />
+    <Compile Include="06_DOM_Traversal.js" />
+    <Content Include="index.html" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
 </Project>
