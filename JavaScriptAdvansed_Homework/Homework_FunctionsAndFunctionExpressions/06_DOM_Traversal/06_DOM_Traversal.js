@@ -5,7 +5,7 @@
         this.indent = '';
         
         this.printElement = function printToDivById(indent) {
-            var idOfResultDiv = 'results'
+            var divId = 'results'
             var className = this.htmlElement.className;
             var elementId = this.htmlElement.id;
             var tagName = this.htmlElement.tagName;
@@ -15,7 +15,7 @@
                 (elementId == '' ? elementId : 'id="' + elementId + '"') +
                 (className == '' ? className : ' class="' + className + '"') + '<br/>';
             
-            var div = document.getElementById(idOfResultDiv);
+            var div = document.getElementById(divId);
             div.innerHTML += result;
         };
         
