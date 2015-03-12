@@ -13,6 +13,8 @@ Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "06_DOM_Traversal", "06_DOM_
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "07_DOM_Manipulation", "07_DOM_Manipulation\07_DOM_Manipulation.njsproj", "{49341610-7BF3-4696-B7ED-0DCB27DFB79C}"
 EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "02_CallAndApply", "02_CallAndApply\02_CallAndApply.njsproj", "{280C4041-E019-4F3F-B3DF-7F9D8B99B313}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{49341610-7BF3-4696-B7ED-0DCB27DFB79C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49341610-7BF3-4696-B7ED-0DCB27DFB79C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49341610-7BF3-4696-B7ED-0DCB27DFB79C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{280C4041-E019-4F3F-B3DF-7F9D8B99B313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{280C4041-E019-4F3F-B3DF-7F9D8B99B313}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{280C4041-E019-4F3F-B3DF-7F9D8B99B313}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{280C4041-E019-4F3F-B3DF-7F9D8B99B313}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

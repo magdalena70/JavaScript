@@ -4,7 +4,7 @@
         var type = typeof arguments[i];
         console.log(arguments[i] + " " + "(" + type + ")");
     }
-}
+};
 printArgsInfo(2, 3, 2.5, -110.5564, false);
 printArgsInfo(null, undefined, "", 0, [], {});
 //printArgsInfo([1, 2], ["string", "array"], ["single value"]);
