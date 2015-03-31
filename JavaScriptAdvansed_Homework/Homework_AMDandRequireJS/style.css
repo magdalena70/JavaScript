@@ -1,0 +1,74 @@
+body {
+	font-style: italic;
+}
+
+input[type="text"] {
+	width: 18%;
+	padding-left: 7px;
+}
+	
+body #wrapper {
+	width: 80%;
+	margin: auto;
+}
+	
+body #wrapper #container {
+	width: 80%;
+	margin: auto;
+	border: solid 2px black;
+	padding: 10px;
+}
+
+body #wrapper #container footer {
+	text-align: left;
+	margin: 15px;
+}	
+
+body #wrapper #container h1 {
+	text-align: center;
+	border-bottom: solid 1px black;
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+body #wrapper #container h1>span {
+	font-size: 20px;
+	font-weight: normal;
+}
+
+body #wrapper #container #sections {
+	width: 93%;
+	margin: auto;
+	padding: 10px;
+	border: dashed 1px black;
+}
+
+body #wrapper #container #sections section {
+	border: solid 1px black;
+	margin: 30px;
+}
+
+body #wrapper #container #sections section h2 {
+	text-align: left;
+	padding-left: 7%;
+	border-bottom: dashed 1px black;
+	margin-left: 10%;
+	margin-right: 30%;
+}
+
+body #wrapper #container #sections section ul {
+	list-style-type: none;
+}
+
+body #wrapper #container #sections section .itemInput,
+body #wrapper #container #sections section .itemButton{
+	float: right;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+body #wrapper #container #sections section .checked {
+	width: 90%;
+	display: inline-block;
+	background: yellow;
+}
