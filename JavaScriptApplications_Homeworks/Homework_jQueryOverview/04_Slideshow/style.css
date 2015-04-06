@@ -1,0 +1,72 @@
+body{
+	background: purple;
+	font-family:Arial, sans-serif;
+}
+
+#wrapper{
+	text-align: center;
+	color: white;
+}
+
+#slideshow #slideshowWindow {
+	width: 800px;
+	height: 500px;
+	margin: auto;
+	padding: 0;
+	border: solid 1px white;
+	box-shadow: 5px 25px 40px white;
+	position: relative;
+	overflow: hidden;
+}
+
+#slideshow #slideshowWindow .slide {
+	margin: 0;
+	padding: 0;
+	width: 800px; 
+	height: 500px;
+	position: relative;
+}
+
+#slideshow #slideshowWindow .slide .slideText {
+	position:absolute;
+	top:200px;
+	left:10px;
+	width:90%;
+	height:130px;
+	margin: 0;
+	padding:0;
+	color: purple;
+}
+
+#slideshow #slideshowWindow .slide .slideText a:link, 
+#slideshow #slideshowWindow .slide .slideText a:visited {
+	position: absolute;
+	top: 250px;
+	left: 0px;
+	background: purple;
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+}
+
+.nav {
+	display: block;
+	position: absolute;
+	cursor: pointer;
+}
+
+#leftNav {
+	top: 570px;
+	left: 830px;
+	background: purple;
+	z-index:999;
+	padding: 10px;
+}
+
+#rightNav {
+	top: 570px;
+	left: 940px;
+	background: purple;
+	z-index:999;
+	padding: 10px;
+}
