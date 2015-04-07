@@ -18,8 +18,8 @@ $(document).ready(function() {
 		$('#slidesHolder')
 			.css('width', slideWidth * numberOfSlides);
 		
-		var moveLeft = $('<span class="nav" id="leftNav">').text('Move Left');
-		var moveRight = $('<span class="nav" id="rightNav">').text('Move Right');
+		var moveLeft = $('<span class="nav" id="leftNav">').text('<');
+		var moveRight = $('<span class="nav" id="rightNav">').text('>');
 		$('#slideshow')
 			.prepend(moveLeft)
 			.append(moveRight);
