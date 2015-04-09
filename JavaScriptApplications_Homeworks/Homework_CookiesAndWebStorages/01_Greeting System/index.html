@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Greeting System</title>
+	<link rel="stylesheet" href="style.css"/>
+    <script src="jquery/jquery-2.1.3.min.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>Greeting System</h1>
+		<ul>
+			<h2>Create a greeting system with the following functionality:</h2>
+			<li>If the user visits the page for the first time, he should be asked to enter his name. 
+				The name then be added to the local storage.
+				<ul>
+					<li>When the user opens the page for the second time, the application should greet him.</li>
+				</ul>
+			</li>
+			<li>Showing session visits count.</li>
+			<li>Show total visits count.</li>
+			<li>Test code on the server.</li>
+		</ul>
+		<form action="index.html" method="post">
+			<input id="userName" type="text" placeholder="Enter your name..."/>
+			<input id="login"  type="submit" value="Log in"/>
+		</form>
+		<div id="greeting"></div>
+		<button id="remove" onclick="removeStorage()">Remove storage</button>
+	</div>
+	<script src="jquery/jqueryGreetingSystem.js"></script>
+</body>
+</html>

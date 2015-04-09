@@ -1,0 +1,47 @@
+body{
+	background: rgba(255, 64, 0, 0.1);
+}
+
+#wrapper{
+	width: 70%;
+	margin: auto;
+	text-align: center;
+	color: gray;
+}
+
+#wrapper #timer{
+	width: 10%;
+	background: rgba(248, 241, 248, 0.5);
+	margin: 5px;
+	font-size: 35px;
+	font-weight: bold;
+	color: gray;
+	border: solid 2px gray;
+}
+
+#wrapper #formQuestions, #result {
+	width: 75%;
+	background: black;
+	margin: 10px auto;
+	border: solid 3px gray;
+	padding: 10px;
+}
+
+#wrapper #result .answer{
+	color: white;
+}
+
+#wrapper #formQuestions form ul{
+	list-style-type: none;
+}
+
+#wrapper h2{
+	text-align: left;
+	margin: 10px;
+	color: white;
+}
+
+#wrapper #formQuestions #submit, #wrapper #result #back{
+	margin: 5px;
+	padding: 10px;
+}

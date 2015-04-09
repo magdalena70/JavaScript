@@ -1,0 +1,32 @@
+#wrapper{
+	width: 70%;
+	margin: auto;
+	border: dashed 2px gray;
+	text-align: center;
+	padding: 10px;
+}
+
+#wrapper ul{
+	text-align: left;
+}
+
+#wrapper form{
+	margin: 10px;
+}
+
+#wrapper #greeting{
+	margin: 10px;
+	border: dashed 1px gray;
+	font-size: 25px;
+	font-weight: bold;
+	
+}
+
+#wrapper .storageCount{
+	margin-left: 70%;
+}
+
+#wrapper #remove{
+	float: left;
+	margin-left: 10px;
+}
