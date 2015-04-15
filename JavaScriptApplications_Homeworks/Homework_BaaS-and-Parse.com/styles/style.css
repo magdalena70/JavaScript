@@ -1,0 +1,19 @@
+#wrapper{
+	width: 60%;
+	margin: auto;
+	border: solid 1px black;
+	padding: 30px;
+}
+
+#wrapper > *{
+	margin: 10px;
+}
+
+#wrapper #country, #wrapper #town{
+	border: dashed 2px gray;
+	padding: 20px;
+}
+
+button{
+	margin: 10px;
+}
