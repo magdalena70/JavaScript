@@ -21,18 +21,8 @@ $(function(){
 			},
 			url: "https://api.parse.com/1/classes/Country"
 		}).success(function(data){
-				$('#country').empty();
-				$('#country').append('<h2>Countries:</h2>')
-					.append('<p>Enter any country name and add new Country/ or edit the name of an existing Country below:</p>')
-					.append('<label for="newCountryName">New Country Name: </label>')
-					.append('<input type="text" id="newCountryName" placeholder=" new country name"/>')
-					.append('<button id="addNewCountry">Add New Country</button>')
-					.append('<p>Enter a Town and add it to any Country below:</p>')
-					.append('<label for="newTownName">New Town Name: </label>')
-					.append('<input type="text" id="newTownName" placeholder=" new town name"/>')
-					.append('<p>Click on a Country and see the town(s) in it:</p>')
-					.append('<ul class="countries"></ul>');
-				$('#addNewCountry').on('click', addNewCountry);
+				appendInputFields()
+				
 				for (var c in data.results) {
 					var country = data.results[c];
 					var countryId = country.objectId;
@@ -67,6 +57,21 @@ $(function(){
 		})
 	}
 	
+	function appendInputFields(){
+		$('#country').empty();
+				$('#country').append('<h2>Countries:</h2>')
+					.append('<p>Enter any country name and add new Country/ or edit the name of an existing Country below:</p>')
+					.append('<label for="newCountryName">New Country Name: </label>')
+					.append('<input type="text" id="newCountryName" placeholder=" New country name"/>')
+					.append('<button id="addNewCountry">Add New Country</button>')
+					.append('<p>Enter a Town and add it to any Country below:</p>')
+					.append('<label for="newTownName">New Town Name: </label>')
+					.append('<input type="text" id="newTownName" placeholder=" New town name"/>')
+					.append('<p>Click on a Country and see the town(s) in it:</p>')
+					.append('<ul class="countries"></ul>');
+				$('#addNewCountry').on('click', addNewCountry);
+	}
+	
 	function addNewCountry(){
 		var newCountryName = $('#newCountryName').val();
 		if(newCountryName != ''){
@@ -83,6 +88,7 @@ $(function(){
 				url: "https://api.parse.com/1/classes/Country"
 			}).success(function(data){
 					loadCountries();
+					$('#newCountryName').val('');
 			}).error(function(err){
 				throw new Error(err);
 			})
@@ -106,7 +112,7 @@ $(function(){
 				$('#country').empty();
 				resultTowns
 					.appendTo($('#country'))
-					.append('<h4>Town(s) in '+country.countryName+':</h4>')
+					.append('<h3>Town(s) in '+country.countryName+':</h3>')
 					.append('<ul class="towns"></ul>');
 					$('.towns').empty();
 				for(var t in data.results){
@@ -150,13 +156,13 @@ $(function(){
 					"X-Parse-REST-API-Key": REST_API_Key
 				},
 				data: JSON.stringify({
-					"countryName": newCountryName
+					"countryName": editCountryName
 				}),
 				contentType: "application/json",
 				url: "https://api.parse.com/1/classes/Country/" + countryId
 			}).success(function(data){
-					console.log('success');
 					loadCountries();
+					$('#newCountryName').val('');
 			}).error(function(err){
 				throw new Error(err);
 			})
@@ -190,6 +196,7 @@ $(function(){
 				url: "https://api.parse.com/1/classes/Town"
 			}).success(function(data){
 				loadAllTowns();
+				$('#newTownName').val('');
 			}).error(function(err){
 				throw new Error(err);
 			})
@@ -211,7 +218,7 @@ $(function(){
 				$('#town').empty();
 				resultAllTowns
 					.appendTo($('#town'))
-					.append('<h4>All town(s):</h4>')
+					.append('<h3>All town(s):</h3>')
 					.append('<ul class="allTowns"></ul>');
 					$('.allTowns').empty();
 				for(var t in data.results){
