@@ -52,7 +52,7 @@ $(function(){
 					$(".countries").append(countryItem);
 				}
 				
-		})error(printError)
+		}).error(printError)
 	}
 	
 	function appendInputFields(){
@@ -87,7 +87,7 @@ $(function(){
 			}).success(function(data){
 					loadCountries();
 					$('#newCountryName').val('');
-			})error(printError)
+			}).error(printError)
 		}else{
 			$('#newCountryName').css('background', 'red');
 		}
@@ -119,7 +119,7 @@ $(function(){
 						.appendTo($(".towns"));
 				}	
 				
-		})error(printError)
+		}).error(printError)
 	}
 	
 	function removeCountry(){
@@ -133,7 +133,7 @@ $(function(){
             url: "https://api.parse.com/1/classes/Country/" + countryId
         }).success(function(data){
 				loadCountries();
-		})error(printError)
+		}).error(printError)
     }
 	
 	function editCountry(){
@@ -155,7 +155,7 @@ $(function(){
 			}).success(function(data){
 					loadCountries();
 					$('#newCountryName').val('');
-			})error(printError)
+			}).error(printError)
 		}else{
 			$('#newCountryName').css('background', 'red');
 		}
@@ -187,7 +187,7 @@ $(function(){
 			}).success(function(data){
 				loadAllTowns();
 				$('#newTownName').val('');
-			})error(printError)
+			}).error(printError)
 		}else{
 			$('#newTownName').css('background', 'red');
 		}
@@ -229,7 +229,7 @@ $(function(){
 					$(".allTowns").append(townItem);
 				}
 				
-		})error(printError)
+		}).error(printError)
 	}
 	
 	function removeTown(){
@@ -243,7 +243,7 @@ $(function(){
             url: "https://api.parse.com/1/classes/Town/" + townId
         }).success(function(data){
 			loadAllTowns();
-		})error(printError)
+		}).error(printError)
     }
 	
 	function editTown(){
