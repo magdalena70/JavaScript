@@ -52,9 +52,7 @@ $(function(){
 					$(".countries").append(countryItem);
 				}
 				
-		}).error(function(err){
-				throw new Error(err.responseText);
-		})
+		})error(printError)
 	}
 	
 	function appendInputFields(){
@@ -89,9 +87,7 @@ $(function(){
 			}).success(function(data){
 					loadCountries();
 					$('#newCountryName').val('');
-			}).error(function(err){
-				throw new Error(err);
-			})
+			})error(printError)
 		}else{
 			$('#newCountryName').css('background', 'red');
 		}
@@ -123,9 +119,7 @@ $(function(){
 						.appendTo($(".towns"));
 				}	
 				
-		}).error(function(err){
-					throw new Error(err.responseText);
-		})
+		})error(printError)
 	}
 	
 	function removeCountry(){
@@ -139,9 +133,7 @@ $(function(){
             url: "https://api.parse.com/1/classes/Country/" + countryId
         }).success(function(data){
 				loadCountries();
-		}).error(function(err){
-			throw new Error(err);
-		})
+		})error(printError)
     }
 	
 	function editCountry(){
@@ -163,9 +155,7 @@ $(function(){
 			}).success(function(data){
 					loadCountries();
 					$('#newCountryName').val('');
-			}).error(function(err){
-				throw new Error(err);
-			})
+			})error(printError)
 		}else{
 			$('#newCountryName').css('background', 'red');
 		}
@@ -197,9 +187,7 @@ $(function(){
 			}).success(function(data){
 				loadAllTowns();
 				$('#newTownName').val('');
-			}).error(function(err){
-				throw new Error(err);
-			})
+			})error(printError)
 		}else{
 			$('#newTownName').css('background', 'red');
 		}
@@ -241,9 +229,7 @@ $(function(){
 					$(".allTowns").append(townItem);
 				}
 				
-		}).error(function(err){
-					throw new Error(err.responseText);
-		})
+		})error(printError)
 	}
 	
 	function removeTown(){
@@ -257,9 +243,7 @@ $(function(){
             url: "https://api.parse.com/1/classes/Town/" + townId
         }).success(function(data){
 			loadAllTowns();
-		}).error(function(err){
-			throw new Error(err);
-		})
+		})error(printError)
     }
 	
 	function editTown(){
@@ -280,8 +264,10 @@ $(function(){
             url: "https://api.parse.com/1/classes/Town/" + townId,
         }).success(function(data){
 			loadAllTowns();
-		}).error(function(err){
-			throw new Error(err);
-		})
+		}).error(printError)
     }
+	
+	function printError(err){
+		throw new Error(err.responseText);
+	}
 })
