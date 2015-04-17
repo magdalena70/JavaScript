@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>SPA-Application</title>
+		<link rel="stylesheet" href="styles/style.css"/>
+		<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1>Students List</h1>
+			<div id="students"></div>
+			<div id="addStudentDiv">
+				<input type="text" id="studentName" placeholder="New student name"/>
+				<input type="text" id="grade" placeholder=" New student grade"/>
+				<button id="addStudent">Add New Student</button>
+			</div>
+		</div>
+		<script src="scripts/model.js"></script>
+		<script src="scripts/studentViewModel.js"></script>
+		<script src="scripts/main.js"></script>
+	</body>
+</html>
