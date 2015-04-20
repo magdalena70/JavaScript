@@ -28,18 +28,18 @@ body, #deleteBtn, #updateBtn, #addBook, #showAllBooks{
 #books .info{
 	width: 20%;
 	margin: 5px;
+	background: rgba(60, 35, 56, 0.3);
 	padding: 10px;
 	display: inline-block;
 	text-align: center;
 	font-weight: bold;
-	border: solid 1px white;
 	color: white;
 }
 
 #addBook, #showAllBooks{
 	width: 16%;
 	padding: 10px;
-	border: solid 1px white;
+	border: none;
 	border-radius: 5px;
 	color: white;
 }
@@ -50,7 +50,6 @@ body, #deleteBtn, #updateBtn, #addBook, #showAllBooks{
 	padding: 10px;
 	display: inline-block;
 	text-align: center;
-	border: solid 1px white;
 	border-radius: 5px;
 	color: white;
 }
