@@ -30,7 +30,7 @@
 										$('#wrapper')
 											.css({
 												border: 'solid 2px gray', 
-												backgroundImage: 'url(img/background.JPG)',
+												backgroundImage: 'url(img/background.jpg)',
 												backgroundRepeat: 'no-repeat',
 												backgroundSize: 'cover'
 											});
@@ -77,7 +77,7 @@
 									});
 							$('#wrapper')
 								.css({
-									backgroundImage: 'url(img/flowers_bckgr_03.JPG)',
+									backgroundImage: 'url(img/flowers_bckgr_03.jpg)',
 									backgroundRepeat: 'no-repeat',
 									backgroundSize: 'cover'
 								});
@@ -113,7 +113,7 @@
 							$('#wrapper')
 								.css({
 									border: 'solid 2px gray', 
-									backgroundImage: 'url(img/flowers_background.JPG)',
+									backgroundImage: 'url(img/flowers_background.jpg)',
 									backgroundRepeat: 'no-repeat',
 									backgroundSize: 'cover'
 								});
