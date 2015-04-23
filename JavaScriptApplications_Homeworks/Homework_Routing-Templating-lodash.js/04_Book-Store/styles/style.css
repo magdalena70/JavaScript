@@ -1,0 +1,28 @@
+#wrapper{
+	width: 90%;
+	margin: auto;
+	color: gray;
+	border: solid 1px gray;
+	padding: 10px;
+}
+
+#wrapper h1{
+	text-align: center;
+}
+
+#wrapper .orderedBooks{
+	width: 65%;
+	margin: auto;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: dashed 2px gray;
+	border-radius: 10px;
+}
+
+#wrapper .orderedBooks h3{
+	text-align: center;
+	width: 80%;
+	margin: auto;
+	margin-bottom: 20px;
+	border-bottom: 1px solid gray;
+}

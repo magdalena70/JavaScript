@@ -1,0 +1,20 @@
+<table colspan="2" rowspan="2" border="2" width="50%" style="margin: auto;">
+	<tr>
+		<th>Name</th>
+		<th>Job Title</th>
+		<th>Web Site</th>
+	</tr>
+	{{#person}}
+	<tr>
+		{{#name}}
+		<td>{{name}}</td>
+		{{/name}}
+		{{#jobTitle}}
+		<td>{{jobTitle}}</td>
+		{{/jobTitle}}
+		{{#webSite}}
+		<td>{{webSite}}</td>
+		{{/webSite}}
+	</tr>
+	{{/person}}
+</table>

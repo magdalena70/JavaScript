@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Book Store</title>
+		<link rel="stylesheet" href="styles/style.css"/>
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1>Book Store</h1>
+			<div>
+				<ul id="allBooks">
+					<h3>All Books:</h3>
+				</ul>
+			</div>
+			<h2>Ordered Books:</h2>
+			<div class="orderedBooks">
+				<ul id="groupBooks">
+					<h3>Group all books by language and sort them by author:</h3>
+				</ul>
+			</div>
+			<div class="orderedBooks">
+				<ul id="averageBookPrice">
+					<h3>Get the average book price for each author:</h3>
+				</ul>
+			</div>
+			<div class="orderedBooks">
+				<ul id="EnglishAndGermanBookPrice">
+					<h3>Get all books in English or German, with price below 30.00, and group them by author:</h3>
+				</ul>
+			</div>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+		<script src="scripts/app.js"></script>
+	</body>
+</html>
