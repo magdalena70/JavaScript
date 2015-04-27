@@ -3,7 +3,7 @@ var app = app || {};
 (function(){
 	var model,
 		viewModel;
-	
+	// If you use Sammy need to open the project in lokalhost. You can try.
 	//router = Sammy(function () {
         //var selector = '#wrapper';
 
