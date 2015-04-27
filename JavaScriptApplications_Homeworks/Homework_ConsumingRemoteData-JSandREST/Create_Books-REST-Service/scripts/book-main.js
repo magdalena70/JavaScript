@@ -4,15 +4,15 @@ var app = app || {};
 	var model,
 		viewModel;
 	
-	router = Sammy(function () {
-        var selector = '#wrapper';
+	//router = Sammy(function () {
+        //var selector = '#wrapper';
 
-        this.get('#/books', function () {
+        //this.get('#/books', function () {
 			sayWelcome();
-		});
-    });
+		//});
+    //});
 	
-    router.run('#/books');
+    //router.run('#/books');
 	
 	function sayWelcome(){
 		$('h1').hide();
