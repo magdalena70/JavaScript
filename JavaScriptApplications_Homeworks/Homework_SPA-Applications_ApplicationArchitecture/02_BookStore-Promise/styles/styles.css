@@ -1,0 +1,107 @@
+#wrapper {
+    width: 80%;
+    margin: auto;
+	padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+	text-align: center;
+	border: dashed 3px #ac3500;
+}
+
+#menu ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 20px;
+}
+
+#menu ul li a{
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+#menu ul li a:hover{
+	background: black;
+	color: #ac3500;
+}
+
+#menu ul {
+	background: #ac3500;
+    padding: 10px;
+    text-align: center;
+}
+#menu {
+	width: 90%;
+	margin: auto;
+    padding: 10px;
+}
+
+#welcome p{
+	color: #ac3500;
+}
+
+#all-books {
+	width: 80%;
+	margin: 10px auto;
+    list-style-type: none;
+    padding: 20px;
+	border: dashed 2px #ac3500;
+}
+
+.book {
+	width: 90%;
+    display: block;
+    padding: 10px;
+    margin: 15px auto;
+    box-shadow: 0 0 10px 3px #ac3500;
+}
+
+.book-name:before {
+    content: 'Title: ';
+    color: #727272;
+}
+.book-author:before {
+    content: 'Author: ';
+    color: #727272;
+}
+.book-isbn:before {
+    content: 'ISBN: ';
+    color: #727272;
+}
+
+.edit-btn, .delete-book-btn, #add-book, #apply-book-btn{
+	padding: 10px;
+	color: #9b0000;
+	font-weight: bold;
+	border: none;
+}
+
+.delete-book-btn:hover {
+    cursor: pointer;
+    background: #9b0000;
+    color: white;
+}
+
+.book-input{
+	width: 50%;
+	margin: auto;
+    display: block;
+    border: dashed 2px #ac3500;
+	padding: 10px;
+}
+
+.book-input > input {
+	width: 80%;
+	margin: 10px auto;
+    display: block;
+	padding: 5px 10px;
+}
+
+.book > div, .book > a {
+    margin: 5px;
+}
+
+a {
+    color: #9b0000;
+}
