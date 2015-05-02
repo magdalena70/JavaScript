@@ -1,0 +1,126 @@
+body{
+	background: black;
+	font-family: Arial, sans-serif;
+	font-size: 18px;
+}
+
+header{
+	background: white;
+	width: 100%;
+	margin: auto;
+	margin-bottom: 25px;
+	text-align: center;
+	border-top-left-radius: 35px;
+	border-bottom-right-radius: 35px;
+}
+
+header ul li{
+	list-style-type: none;
+	display: inline-block;
+	margin: 10px 4%;
+}
+
+header ul li a{
+	text-decoration: none;
+	padding: 15px;
+	border: solid 1px gray;
+	color: black;
+}
+
+#wrapper{
+	background: white;
+	width: 90%;
+	margin: auto;
+	padding: 10px;
+	border-top-left-radius: 15%;
+	border-bottom-right-radius: 15%;
+	text-align: center;
+}
+
+#welcome{
+	margin-bottom: 150px;
+}
+
+#info{
+	text-align: left;
+	margin: 20px;
+	margin-bottom: 50px;
+	font-size: 12px;
+}
+
+#register-form, #login-form{
+	width: 50%;
+	margin: auto;
+	border: solid 1px gray;
+	border-top-left-radius: 15%;
+	border-bottom-right-radius: 15%;
+	padding: 10px;
+	text-align: left;
+}
+
+#register-form input, #login-form input{
+	width: 50%;
+	margin: 5px auto;
+	padding: 10px;
+	border-radius: 6px;
+}
+
+#register-form button, #login-form button, #allBookmarks button, #add-form button{
+	padding: 6px 12px;
+	border-radius: 6px;
+}
+
+#allBookmarks{
+	background: black;
+	width: 90%;
+	margin: auto;
+	margin-top: 40px;
+	border-top-left-radius: 15%;
+	border-bottom-right-radius: 15%;
+}
+
+#allBookmarks  h2{
+	color: white;
+	padding-top: 20px;
+}
+
+#allBookmarks #logout{
+	float: right;
+	margin: 15px;
+}
+
+#allBookmarks .bookmarks{
+	background: white;
+	width: 250px;
+	margin: 6px;
+	padding: 10px;
+	border-top-left-radius: 15%; 
+	border-bottom-right-radius: 15%;
+	display: inline-block;
+}
+
+#allBookmarks .bookmarks p{
+	word-wrap: break-word;
+	text-align: left;
+}
+
+#allBookmarks .bookmarks p span{
+	font-weight: bold;
+}
+
+#add-form{
+	margin: 6px;
+}
+
+#add-form input{
+	background: white;
+	margin: 4px auto;
+	padding: 10px;
+	border-radius: 6px;
+}
+
+header ul li a:hover, button:hover{
+	background: black;
+	color: white;
+	border-color: white;
+}
