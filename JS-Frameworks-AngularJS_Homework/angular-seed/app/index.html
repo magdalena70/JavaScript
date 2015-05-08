@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="angularDemo">
+<head>
+    <meta charset="utf-8">
+    <title>Hello Angular Seed</title>
+</head>
+<body ng-controller='GoodByeAngular'>
+
+	<h1 ng-controller="HelloAngular">{{newMessage}}</h1>
+	<p>{{goodByeMessage}}</p>
+	
+	<script src="lib/angular/angular.js"></script>
+    <script type="text/javascript">
+    	var app = angular.module('angularDemo', []);
+    	app.controller('HelloAngular', function($scope){
+    		$scope.newMessage = "Hello, Angular Seed!";
+    	})
+    	app.controller('GoodByeAngular', function($scope) {
+    		$scope.goodByeMessage = "Goodbye, Angular!";
+    	})
+    </script>
+</body>
+</html>
