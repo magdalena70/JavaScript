@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="socialNetworkApp" ng-controller="SocialNetworkController">
+<head>
+    <meta charset="UTF-8">
+    <title>Social Network</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
+<body>
+	<div class="container">
+        <div id="startPage">
+            <nav id="navbar" class="navbar navbar-fixed-top text-center">
+                <ul class="nav nav-justified">
+                    <li><a href="#/" class="bg-primary" ng-click="showHome = !showHome"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="#/Login" class="bg-primary" ng-click="showLogin = !showLogin"><i class="fa fa-user"></i> Login</a></li>
+                    <li><a href="#/Register" class="bg-primary" ng-click="showRegister = !showRegister"><i class="fa fa-user"></i><i class="fa fa-plus"></i> Register</a></li>
+                </ul>
+            </nav>
+            <div class="col-md-12 row well text-center" ng-hide="showRegister" ng-show="!showLogin">
+                <h1>Social Network</h1>
+                <p>Welcome to our Social Network! Go to Login or Register page.</p>
+            </div>
+        </div>
+    </div>
+	<script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+    <script src="lib/angular-resource.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/socialNetworkController.js"></script>
+</body>
+</html>
