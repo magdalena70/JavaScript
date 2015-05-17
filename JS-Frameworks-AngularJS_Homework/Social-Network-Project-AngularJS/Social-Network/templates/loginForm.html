@@ -1,0 +1,39 @@
+<div id="loginFormContainer" class="col-md-offset-3 col-md-6 row well">
+	<form id="loginForm" class="form-horizontal" name="loginForm">
+		<div class="form-group">
+			<label for="username" class="col-md-2 control-label">Username*</label>
+			<div class="col-md-8">
+				<input type="text" class="form-control" 
+					id="username" 
+					name="username"
+					ng-model="username"
+					placeholder="Username" required>
+				<p class="error" ng-show="loginForm.username.$error.required">
+					<small><i class="fa fa-exclamation-triangle"></i> Required</small>
+				</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="userPassword" class="col-md-2 control-label">Password*</label>
+			<div class="col-md-8">
+				<input type="password" class="form-control" 
+					id="userPassword" 
+					name="userPassword"
+					ng-model="userPassword"
+					placeholder="Password" required>
+				<p class="error" ng-show="loginForm.userPassword.$error.required">
+					<small><i class="fa fa-exclamation-triangle"></i> Required</small>
+				</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<button type="submit" class="btn btn-default col-md-3" 
+					ng-disabled="loginForm.$invalid"
+					ng-click="login()">
+						<i class="fa fa-unlock"></i> Login
+				</button>
+			</div>
+		</div>
+	</form>
+</div>

@@ -10,19 +10,14 @@
 </head>
 <body>
 	<div class="container">
-        <div id="startPage">
-            <nav id="navbar" class="navbar navbar-fixed-top text-center">
-                <ul class="nav nav-justified">
-                    <li><a href="#/" class="bg-primary" ng-click="showHome = !showHome"><i class="fa fa-home"></i> Home</a></li>
-                    <li><a href="#/Login" class="bg-primary" ng-click="showLogin = !showLogin"><i class="fa fa-user"></i> Login</a></li>
-                    <li><a href="#/Register" class="bg-primary" ng-click="showRegister = !showRegister"><i class="fa fa-user"></i><i class="fa fa-plus"></i> Register</a></li>
-                </ul>
-            </nav>
-            <div class="col-md-12 row well text-center" ng-hide="showRegister" ng-show="!showLogin">
-                <h1>Social Network</h1>
-                <p>Welcome to our Social Network! Go to Login or Register page.</p>
-            </div>
-        </div>
+        <nav id="navbar" class="navbar navbar-fixed-top text-center">
+            <ul class="nav nav-justified">
+                <li><a href="#/" class="bg-primary"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="#/login" class="bg-primary"><i class="fa fa-user"></i> Login</a></li>
+                <li><a href="#/register" class="bg-primary"><i class="fa fa-user"></i><i class="fa fa-plus"></i> Register</a></li>
+            </ul>
+        </nav>
+        <ng-view></ng-view>
     </div>
 	<script src="lib/angular.js"></script>
     <script src="lib/angular-route.js"></script>
