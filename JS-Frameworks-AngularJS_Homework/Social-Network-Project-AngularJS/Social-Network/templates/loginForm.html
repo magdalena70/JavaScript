@@ -1,3 +1,11 @@
+<nav id="navbar" class="navbar navbar-fixed-top text-center">
+    <ul class="nav nav-justified">
+        <li><a href="#/" class="bg-primary"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="#/login" class="bg-primary"><i class="fa fa-user"></i> Login</a></li>
+        <li><a href="#/register" class="bg-primary"><i class="fa fa-user"></i><i class="fa fa-plus"></i> Register</a></li>
+    </ul>
+</nav>
+<!-- login -->
 <div id="loginFormContainer" class="col-md-offset-3 col-md-6 row well">
 	<form id="loginForm" class="form-horizontal" name="loginForm">
 		<div class="form-group">
@@ -6,7 +14,7 @@
 				<input type="text" class="form-control" 
 					id="username" 
 					name="username"
-					ng-model="username"
+					ng-model="loginData.username"
 					placeholder="Username" required>
 				<p class="error" ng-show="loginForm.username.$error.required">
 					<small><i class="fa fa-exclamation-triangle"></i> Required</small>
@@ -19,7 +27,7 @@
 				<input type="password" class="form-control" 
 					id="userPassword" 
 					name="userPassword"
-					ng-model="userPassword"
+					ng-model="loginData.userPassword"
 					placeholder="Password" required>
 				<p class="error" ng-show="loginForm.userPassword.$error.required">
 					<small><i class="fa fa-exclamation-triangle"></i> Required</small>

@@ -1,3 +1,11 @@
+<nav id="navbar" class="navbar navbar-fixed-top text-center">
+    <ul class="nav nav-justified">
+        <li><a href="#/" class="bg-primary"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="#/login" class="bg-primary"><i class="fa fa-user"></i> Login</a></li>
+        <li><a href="#/register" class="bg-primary"><i class="fa fa-user"></i><i class="fa fa-plus"></i> Register</a></li>
+    </ul>
+</nav>
+<!-- register -->
 <div id="registerFormContainer" class="col-md-offset-3 col-md-6 row well">
 	<form id="registerForm" class="form-horizontal" name="registerForm">
 		<div class="form-group">
@@ -6,7 +14,7 @@
 				<input type="text" class="form-control" 
 					id="username" 
 					name="username"
-					ng-model="username"
+					ng-model="userRegisterData.username"
 					placeholder="Username" required>
 				<p class="error" ng-show="registerForm.username.$error.required">
 					<small><i class="fa fa-exclamation-triangle"></i> Required</small>
@@ -19,7 +27,7 @@
 				<input type="password" class="form-control" 
 					id="userPassword" 
 					name="userPassword"
-					ng-model="userPassword"
+					ng-model="userRegisterData.userPassword"
 					placeholder="Password" required>
 				<p class="error" ng-show="registerForm.userPassword.$error.required">
 					<small><i class="fa fa-exclamation-triangle"></i> Required</small>
@@ -32,7 +40,7 @@
 				<input type="password" class="form-control" 
 					id="confirmUserPassword" 
 					name="confirmUserPassword"
-					ng-model="confirmUserPassword"
+					ng-model="userRegisterdata.confirmUserPassword"
 					placeholder="Confirm Password" required>
 				<p class="error" ng-show="registerForm.confirmUserPassword.$error.required">
 					<small><i class="fa fa-exclamation-triangle"></i> Required</small>
@@ -45,7 +53,7 @@
 				<input type="text" class="form-control" 
 					id="name" 
 					name="name"
-					ng-model="name"
+					ng-model="userRegisterData.name"
 					placeholder="Name" required>
 				<p class="error" ng-show="registerForm.name.$error.required">
 					<small><i class="fa fa-exclamation-triangle"></i> Required</small>
@@ -59,7 +67,7 @@
 				<input type="email" class="form-control" 
 					id="email"
 					name="email"
-					ng-model="email"
+					ng-model="userRegisterData.email"
 					ng-pattern="/\S+@\S+\.\S+/i"
 					placeholder="Email address" required>
 			</div>
@@ -77,25 +85,22 @@
 					<input type="radio"
 						name="gender" 
 						id="male" 
-						ng-true-value="male"
-                        ng-false-value="undefined"
-						ng-model="gender"> Male
+						value="male"
+						ng-model="userRegisterData.gender"> Male
 				</label>
 				<label class="radio-inline">
 					<input type="radio"
 						name="gender" 
 						id="female" 
-						ng-true-value="female"
-                        ng-false-value="undefined"
-						ng-model="gender"> Female
+						value="female"
+						ng-model="userRegisterData.gender"> Female
 				</label>
 				<label class="radio-inline">
 					<input type="radio"
 						name="gender" 
 						id="other" 
-						ng-true-value="other"
-                        ng-false-value="undefined"
-						ng-model="gender"> Other
+						value="other"
+						ng-model="userRegisterData.gender"> Other
 				</label>
 			</div>
 		</div>
