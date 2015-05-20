@@ -1,16 +1,15 @@
-<div class="col well">
-    <div>
-        <h3>Requests:</h3>
-    </div>
-    <div>
-        <ul>
+<div id="friendsRequestsPage" ng-include="'templates/homeNavbarIncluded.html'"></div>
+<div class="row well">
+    <h1>Friends Requests <i class="fa fa-user"></i><i class="fa fa-user"></i></h1>
+    <div class="col-md-11 row well">
+        <ol>
             <li>
                 <a>From </a>
             </li>
-        </ul>
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-primary" ng-click="acceptFriendRequest()">Accept</button>
-        <button class="btn btn-warning" ng-click="rejectFriendRequest()">Reject</button>
-    </div>
+        </ol>
+		<div class="modal-footer">
+			<button class="btn btn-primary" ng-click="acceptFriendRequest()">Accept</button>
+			<button class="btn btn-warning" ng-click="rejectFriendRequest()">Reject</button>
+		</div>
+	</div>
 </div>

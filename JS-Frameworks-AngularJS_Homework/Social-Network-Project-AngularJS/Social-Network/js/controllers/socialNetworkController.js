@@ -1,7 +1,16 @@
-'use strict'
-
-app.controller('SocialNetworkController', function($scope, $location, $route, userService){
+app.controller('SocialNetworkController', function($scope, $location, $route, userService, $log){
 	$scope.username = userService.getUserName();
+	$scope.totalItems = 31;
+	$scope.currentPage = 1;
+
+	/*$scope.setPage = function (pageNo) {
+		$scope.currentPage = pageNo;
+	};*/
+
+	$scope.pageChanged = function() {
+		$log.log('Page changed to: ' + $scope.currentPage);
+	};
+	
 	/*if (!userService.isLoggedIn()) {
         $location.path('/');
     }*/

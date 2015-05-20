@@ -6,6 +6,15 @@ body {
 	color: red;
 }
 
-address{
+#startPage #footer address{
 	margin: 10px;
+}
+
+#userProfilePage #profileImage{
+	margin-top: -40px;
+	margin-left: -40px;
+}
+
+#userPosts{
+	padding-top: 50px;
 }

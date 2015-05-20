@@ -28,8 +28,8 @@ var app = angular.module('socialNetworkApp', ['ngResource', 'ngRoute', 'ui.boots
 			templateUrl: 'templates/editProfile.html',
 			controller: 'SocialNetworkController'
 		})
-		.when('/user/editPassword', {
-			templateUrl: 'templates/editPassword.html',
+		.when('/user/changePassword', {
+			templateUrl: 'templates/changePassword.html',
 			controller: 'SocialNetworkController'
 		})
 		.when('/user/friendsRequests', {

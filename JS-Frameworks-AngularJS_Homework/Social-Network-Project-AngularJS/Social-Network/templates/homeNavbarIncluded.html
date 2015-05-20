@@ -1,0 +1,37 @@
+<nav id="navbar" class="navbar navbar-fixed-top text-center">
+    <ul class="nav nav-justified">
+        <li>
+			<a href="#/user/profile" ng-click="getUserFullData()" class="bg-primary"> {{username}}'s profile</a>
+		</li>
+        <li>
+			<a href="#/user/comments" class="bg-primary">
+				<i class="fa fa-comments"></i> Comments
+			</a>
+		</li>
+        <li>
+			<a href="#/user/friendsRequests" class="bg-primary" tooltip-placement="bottom" tooltip="See all friends requests.">
+				<i class="fa fa-user"></i><i class="fa fa-user"></i> Friends Requests
+			</a>
+		</li>
+		<li>
+			<a href="#/user/editProfile" class="bg-primary">
+				<i class="fa fa-cogs"></i> Edit Profile
+			</a>
+		</li>
+		<li>
+			<a href="#/user/changePassword" class="bg-primary">
+				<i class="fa fa-key"></i> Change Password
+			</a>
+		</li>
+		<li>
+			<a href="#/user/sendRequest" class="bg-primary">
+				<i class="fa fa-sign-in"></i> Send Friend Request
+			</a>
+		</li>
+		<li class="bg-primary">
+			<button type="submit" class="btn btn-default" ng-click="logout()">
+				<i class="fa fa-lock"></i> Logout
+			</button>
+		</li>
+    </ul>
+</nav>
