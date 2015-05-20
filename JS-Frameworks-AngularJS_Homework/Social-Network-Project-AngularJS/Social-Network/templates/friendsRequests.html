@@ -4,14 +4,13 @@
     </div>
     <div>
         <ul>
-            <li ng-repeat="item in items">
-                <a ng-click="selected.item = item">{{ item }}</a>
+            <li>
+                <a>From </a>
             </li>
         </ul>
-        Selected: <b>{{ selected.item }}</b>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" ng-click="accept()">Accept</button>
-        <button class="btn btn-warning" ng-click="cancel()">Reject</button>
+        <button class="btn btn-primary" ng-click="acceptFriendRequest()">Accept</button>
+        <button class="btn btn-warning" ng-click="rejectFriendRequest()">Reject</button>
     </div>
 </div>

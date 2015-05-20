@@ -1,7 +1,12 @@
 'use strict'
 
 app.controller('SocialNetworkController', function($scope, $location, $route, userService){
-	var clearData = function clearData(){
+	$scope.username = userService.getUserName();
+	/*if (!userService.isLoggedIn()) {
+        $location.path('/');
+    }*/
+
+	function clearData(){
 		$scope.loginData = '';
 		$scope.userRegisterData = '';
 	}
@@ -14,14 +19,15 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
         userService.login($scope.loginData,
             function(data, status, headers, config) {
 				$scope.data = data;
-                alert("Successful Login!");
+                alert('Hello, ' + data.userName + '!');
                 localStorage['accessToken'] = data.access_token;
 				localStorage['userName'] = data.userName;
                 clearData();
                 $location.path('/user/home');
             },
             function (error, status, headers, config) {
-                alert(status + ': ' + error.message)
+			noty({text: status + ': ' + error.responseText});
+                alert(status + ': ' + error.message);
         });
     }
 	
@@ -29,9 +35,9 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 		userService.register($scope.userRegisterData,
 			function (data, status, headers, config) {
 				$scope.data = data;
-				alert(data.userName);
+				alert('Hello' + data.userName + '!');
 				localStorage['accessToken'] = data.access_token;
-				localStorage['username'] = data.userName;
+				localStorage['userName'] = data.userName;
 				localStorage['name'] = data.name;
 				localStorage['email'] = data.email;
 				localStorage['gender'] = data.gender;
@@ -43,15 +49,41 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 		});
 	}
 	
+	$scope.getUserFullData = function(){
+		userService.getUserFullData(function(data, status, headers, config){
+				$scope.data = data;
+				localStorage["id"] = data.id;
+				localStorage["userName"] = data.userName;
+				localStorage["name"] = data.name;
+				localStorage["profileImageData"] = data.profileImageData; // or null
+				localStorage["gender"] = data.gender;
+				localStorage["coverImageData"] = data.coverImageData; // or null
+				localStorage["isFriend"] = data.isFriend; // true or false
+				localStorage["hasPendingRequest"] = data.hasPendingRequest; // true or false
+			},function(error, status, headers, config){
+				alert(status + ': ' + error.message);
+			});
+	}
+	
+	$scope.rejectFriendRequest = function (){
+		alert('You rejected this friend request! You can accept it later.');
+		//$location.path('/user/friendsRequests');
+	}
+	
 	$scope.logout = function(){
 		userService.logout(
-			function () {
-				alert('GoodBye');
+			function (data) {
+				$scope.data = data;
+				alert(data.message + ' GoodBye!');
+				clearData();
 				clearLocalStorage();
 				$route.reload();
 				$location.path('/');
 			}, 
 			function (error, status) {
+				if(status == 401){
+					clearLocalStorage();
+				}
 				alert(status + ': ' + error.message);
 		});
 	}

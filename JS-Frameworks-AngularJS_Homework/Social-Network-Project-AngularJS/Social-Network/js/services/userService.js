@@ -10,7 +10,7 @@ app.factory('userService', function userService($http, baseUrl) {
 			url: serviceUrl + '/login',
 			headers: {},
 			data: {
-				"userName": loginData.username,
+				"username": loginData.username,
 				"password": loginData.userPassword
 			}
 		}).success(function (data, status, headers, config) {
@@ -28,8 +28,9 @@ app.factory('userService', function userService($http, baseUrl) {
 			data: {
 				"username": userRegisterData.username,
 				"password": userRegisterData.userPassword,
-				"confirmPassword": userRegisterData.confirmPassword,
+				"confirmPassword": userRegisterData.confirmUserPassword,
 				"name": userRegisterData.name,
+				"email": userRegisterData.email,
 				"gender": userRegisterData.gender
 				}
 			}).success(function (data, status, headers, config) {
@@ -39,21 +40,32 @@ app.factory('userService', function userService($http, baseUrl) {
 			});
     }
 	
-	function getHeadersAuthorization() {
-        return {
-            Authorization: "Bearer " + localStorage['accessToken']
-        };
-    };
+	function getUserFullData(success, error){
+		$http({
+			method: 'GET',
+			url: serviceUrl + '/' + localStorage['userName'],
+			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
+			data: {}
+		}).success(function (data, status, headers, config) {
+            success(data, status, headers(), config);
+        }).error(function (data, status, headers, config) {
+			error(data, status, headers(), config);
+		});
+	}
 	
 	function isLoggedIn() {
         return localStorage['accessToken'];
-    };
+    }
+	
+	function getUserName() {
+		return localStorage['userName'];
+	}	
 	
 	function logout(success, error){
         $http({
 			method: 'POST',
 			url: serviceUrl + '/logout',
-			headers: {Authorization: "Bearer " + localStorage['accessToken']},
+			headers:{ 'Authorization': 'Bearer ' + localStorage['accessToken']},
 			data: {}
 		}).success(function (data, status, headers, config) {
             success(data, status, headers(), config);
@@ -64,7 +76,9 @@ app.factory('userService', function userService($http, baseUrl) {
 
 	return {
 		login: login,
-		getHeadersAuthorization: getHeadersAuthorization,
+		register: register,
+		getUserFullData: getUserFullData,
+		getUserName: getUserName,
 		isLoggedIn: isLoggedIn,
 		logout: logout
 	};

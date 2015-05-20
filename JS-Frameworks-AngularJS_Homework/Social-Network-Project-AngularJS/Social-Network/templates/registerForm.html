@@ -1,10 +1,4 @@
-<nav id="navbar" class="navbar navbar-fixed-top text-center">
-    <ul class="nav nav-justified">
-        <li><a href="#/" class="bg-primary"><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="#/login" class="bg-primary"><i class="fa fa-user"></i> Login</a></li>
-        <li><a href="#/register" class="bg-primary"><i class="fa fa-user"></i><i class="fa fa-plus"></i> Register</a></li>
-    </ul>
-</nav>
+<div ng-include="'templates/navbarIncluded.html'"></div>
 <!-- register -->
 <div id="registerFormContainer" class="col-md-offset-3 col-md-6 row well">
 	<form id="registerForm" class="form-horizontal" name="registerForm">
@@ -85,21 +79,21 @@
 					<input type="radio"
 						name="gender" 
 						id="male" 
-						value="male"
+						value=1
 						ng-model="userRegisterData.gender"> Male
 				</label>
 				<label class="radio-inline">
 					<input type="radio"
 						name="gender" 
 						id="female" 
-						value="female"
+						value=2
 						ng-model="userRegisterData.gender"> Female
 				</label>
 				<label class="radio-inline">
 					<input type="radio"
 						name="gender" 
 						id="other" 
-						value="other"
+						value=0
 						ng-model="userRegisterData.gender"> Other
 				</label>
 			</div>
