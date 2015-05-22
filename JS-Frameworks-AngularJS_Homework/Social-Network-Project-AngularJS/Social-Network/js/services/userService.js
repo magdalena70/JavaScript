@@ -1,6 +1,7 @@
 app.factory('userService', function userService($http, baseUrl) {
 	
     var serviceUrl = baseUrl + '/users';
+	var headers = { 'Authorization': 'Bearer ' + localStorage['accessToken']};
 	
     function login(loginData, success, error){
         $http({
@@ -38,11 +39,24 @@ app.factory('userService', function userService($http, baseUrl) {
 			});
     }
 	
+	function logout(success, error){
+        $http({
+			method: 'POST',
+			url: serviceUrl + '/logout',
+			headers: headers,
+			data: {}
+		}).success(function (data, status, headers, config) {
+            success(data, status, headers(), config);
+        }).error(function (data, status, headers, config) {
+			error(data, status, headers(), config);
+		});
+    }
+	
 	function getUserFullData(success, error){
 		$http({
 			method: 'GET',
 			url: serviceUrl + '/' + getUserName(),
-			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
+			headers: headers,
 			data: {}
 		}).success(function (data, status, headers, config) {
             success(data, status, headers(), config);
@@ -55,7 +69,7 @@ app.factory('userService', function userService($http, baseUrl) {
 		$http({
 			method: 'GET',
 			url: serviceUrl + '/search?searchTerm=' + inputName.name,
-			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
+			headers: headers,
 			data: {}
 		}).success(function (data, status, headers, config) {
             success(data, status, headers(), config);
@@ -116,19 +130,6 @@ app.factory('userService', function userService($http, baseUrl) {
 			return localStorage['profileImageData'];
 		}
 	}
-	
-	function logout(success, error){
-        $http({
-			method: 'POST',
-			url: serviceUrl + '/logout',
-			headers:{ 'Authorization': 'Bearer ' + localStorage['accessToken']},
-			data: {}
-		}).success(function (data, status, headers, config) {
-            success(data, status, headers(), config);
-        }).error(function (data, status, headers, config) {
-			error(data, status, headers(), config);
-		});
-    }
 
 	return {
 		login: login,

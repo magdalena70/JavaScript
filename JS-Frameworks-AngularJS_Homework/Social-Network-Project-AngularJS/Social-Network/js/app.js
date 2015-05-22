@@ -1,5 +1,3 @@
-'use strict';
-
 var app = angular.module('socialNetworkApp', ['ngResource', 'ngRoute', 'ui.bootstrap']);
 	app.constant('baseUrl', 'http://softuni-social-network.azurewebsites.net/api');
 	
@@ -16,36 +14,32 @@ var app = angular.module('socialNetworkApp', ['ngResource', 'ngRoute', 'ui.boots
 			templateUrl: 'templates/registerForm.html',
 			controller: 'SocialNetworkController'
 		})
-		.when('/user/home', {
+		.when('/home', {
 			templateUrl: 'templates/userHomePage.html',
 			controller: 'SocialNetworkController'
 		})
-		.when('/user/' + localStorage['username'], {
+		.when('/users/' + localStorage['username'], {
 			templateUrl: 'templates/userProfile.html',
 			controller: 'SocialNetworkController'
 		})
-		.when('/user/editProfile', {
+		.when('/profile', {
 			templateUrl: 'templates/editProfile.html',
 			controller: 'SocialNetworkController'
 		})
-		.when('/user/changePassword', {
+		.when('/profile/password', {
 			templateUrl: 'templates/changePassword.html',
 			controller: 'SocialNetworkController'
 		})
-		.when('/user/friendsRequests', {
+		.when('/friendsRequests', {
 			templateUrl: 'templates/friendsRequests.html',
 			controller: 'SocialNetworkController'
 		})
-		.when('/user/sendFriendRequest', {
+		.when('/sendFriendRequest', {
 			templateUrl: 'templates/sendFriendRequest.html',
 			controller: 'SocialNetworkController'
 		})
-		.when('/user/addPost', {
+		.when('/addPost', {
 			templateUrl: 'templates/addPostForm.html',
-			controller: 'SocialNetworkController'
-		})
-		.when('/user/comments', {
-			templateUrl: 'templates/comments.html',
 			controller: 'SocialNetworkController'
 		})
 		.otherwise({redirectTo: '/'})

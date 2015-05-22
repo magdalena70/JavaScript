@@ -1,15 +1,16 @@
 app.factory('postService', function postService($http, baseUrl) {
 
 	var serviceUrl = baseUrl + '/posts';
+	var headers = { 'Authorization': 'Bearer ' + localStorage['accessToken']};
 	
 	function addNewPost(newPostData, success, error){
         $http({
 			method: 'POST',
 			url: serviceUrl,
-			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
+			headers: headers,
 			data: {
-				"postContent": 'test post content',
-				"username": getUserName()
+				"postContent": 'Some text...',//newPostData.postContent
+				"username": localStorage['username']
 			}
 		}).success(function (data, status, headers, config) {
             success(data, status, headers(), config);
@@ -22,7 +23,7 @@ app.factory('postService', function postService($http, baseUrl) {
         $http({
 			method: 'GET',
 			url: serviceUrl + '/' + localStorage['postId'],
-			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
+			headers: headers,
 			data: {}
 		}).success(function (data, status, headers, config) {
             success(data, status, headers(), config);
@@ -34,8 +35,8 @@ app.factory('postService', function postService($http, baseUrl) {
 	function deletePostById(success, error){
         $http({
 			method: 'DELETE',
-			url: serviceUrl + '/' + getPostId(),
-			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
+			url: serviceUrl + '/' + localStorage['postId'],
+			headers: headers,
 			data: {}
 		}).success(function (data, status, headers, config) {
             success(data, status, headers(), config);
@@ -44,19 +45,9 @@ app.factory('postService', function postService($http, baseUrl) {
 		});
     }
 	
-	function getUserName() {
-		return localStorage['username'];
-	}
-	
-	function getPostId() {
-		return localStorage['postId'];
-	}
-	
 	return {
 		addNewPost: addNewPost,
 		getPostById: getPostById,
-		deletePostById: deletePostById,
-		getUserName: getUserName,
-		getPostId: getPostId
+		deletePostById: deletePostById
 	};
 });

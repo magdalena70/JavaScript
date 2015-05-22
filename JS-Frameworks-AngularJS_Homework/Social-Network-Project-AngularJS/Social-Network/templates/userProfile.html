@@ -15,9 +15,9 @@
 	<h1 class="row well">News Feed <i class="fa fa-comments-o"></i></h1>
 	<hr />
 	<div class="col-md-7 col well text-center">
-		<p ng-click="getPostById()" class="bg-primary">Click to see Your Posts </p>
-		<p id="addNewPostLink" class="bg-info"><a href="#/user/addPost"> Add New Post</a></p>
-		<div id="comment" class="row well col-md-6 text-left">
+		<p id="addNewPostLink" class="bg-info"><a href="#/addPost"> Add New Post</a></p>
+		<p ng-click="getPostById()" class="bg-primary">Click to see the New Post </p>
+		<div id="post" class="row well col-md-8 text-left">
 			<p><button type="submit" class="btn btn-default" ng-click="deletePostById()">X</button></p>
 			<p><a><em>{{username}}</em></a></p>
 			<p><em>{{postDate | date:'dd-MMM-yyyy'}}</em></p>

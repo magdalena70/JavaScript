@@ -1,4 +1,4 @@
-app.controller('SocialNetworkController', function($scope, $location, $route, userService, postService, $log){
+app.controller('SocialNetworkController', function($scope, $location, $route, userService, postService, friendService, $log){
 	$scope.username = userService.getUserName();
 	$scope.id = localStorage["id"];
 	$scope.name = userService.getName();
@@ -11,14 +11,6 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 	$scope.isLoggedIn = userService.isLoggedIn();
 	$scope.postContent = localStorage['postContent'];
 	$scope.postDate = localStorage['postDate'];
-	$scope.posts = [];
-
-	function clearData(){
-		$scope.loginData = '';
-		$scope.userRegisterData = '';
-		$scope.inputName = '';
-		$scope.newPostData = '';
-	}
 	
 	function clearLocalStorage(){
 		localStorage.clear();
@@ -31,11 +23,9 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
                 alert('Hello, ' + data.userName + '!');
                 localStorage['accessToken'] = data.access_token;
 				localStorage['username'] = data.userName;
-                clearData();
-                $location.path('/user/home');
+                $location.path('/home');
             },
             function (error, status, headers, config) {
-			noty({text: status + ': ' + error.responseText});
                 alert(status + ': ' + error.message);
         });
     }
@@ -47,13 +37,27 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 				alert('Hello' + data.userName + '!');
 				localStorage['accessToken'] = data.access_token;
 				localStorage['username'] = data.userName;
-				localStorage['name'] = data.name;
 				localStorage['email'] = data.email;
-				//localStorage['gender'] = data.gender;
-				clearData();
-				$location.path('/user/home');
+				$location.path('/home');
 			}, 
 			function (error, status, headers, config) {
+				alert(status + ': ' + error.message);
+		});
+	}
+	
+	$scope.logout = function(){
+		userService.logout(
+			function (data) {
+				$scope.data = data;
+				alert(data.message + ' GoodBye!');
+				clearLocalStorage();
+				$route.reload();
+				$location.path('/');
+			}, 
+			function (error, status) {
+				if(status == 401){
+					clearLocalStorage();
+				}
 				alert(status + ': ' + error.message);
 		});
 	}
@@ -62,8 +66,7 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 		userService.getUserFullData(function(data, status, headers, config){
 				alert('Welcome in profile page!');
 				$scope.data = data;
-				localStorage["id"] = data.id;
-				localStorage["username"] = data.username;
+				localStorage["userId"] = data.id;
 				localStorage["name"] = data.name;
 				localStorage["profileImageData"] = data.profileImageData; // or null
 				localStorage["gender"] = data.gender;
@@ -76,18 +79,15 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 			});
 	}
 	
+	// posts
 	$scope.addNewPost = function addNewPost(){
 		postService.addNewPost($scope.newPostData, 
 			function(data, status, headers, config){
 				$scope.data = data;
 				localStorage["postId"] = data.id;
 				localStorage['postDate'] = data.date;
-				$scope.posts.push(data.id);
-				//to do
-				clearData();
-				$location.path('/user/' + userService.getUserName());
 				$route.reload();
-				getPostById();
+				$location.path('/users/' + $scope.username);
 			},function(error, status, headers, config){
 				alert(status + ': ' + error.message);
 			});
@@ -97,10 +97,8 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 		postService.getPostById(function(data, status, headers, config){
 				$scope.data = data;
 				localStorage["postContent"] = data.postContent;
-				//to do
-				clearData();
-				$location.path('/user/' + userService.getUserName());
 				$route.reload();
+				$location.path('/users/' + $scope.username);
 			},function(error, status, headers, config){
 				alert(status + ': ' + error.message);
 			});
@@ -108,46 +106,66 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 	
 	$scope.deletePostById = function deletePostById(){
 		postService.deletePostById(function(data, status, headers, config){
-				$scope.data = data;
-				clearData();
-				$location.path('/user/' + userService.getUserName());
+				$location.path('/users/' + $scope.username);
 				$route.reload();
 			},function(error, status, headers, config){
 				alert(status + ': ' + error.message);
 			});
 	}
 	
+	//friends
+	$scope.getOwnFriends = function getOwnFriends(){
+		friendService.getOwnFriends(function(data, status, headers, config){
+				//to do
+			},function(error, status, headers, config){
+				alert(status + ': ' + error.message);
+			});
+	}
+	
+	$scope.getFriendRequests = function getFriendRequests(){
+		friendService.getFriendRequests(function(data, status, headers, config){
+				//to do
+			},function(error, status, headers, config){
+				alert(status + ': ' + error.message);
+			});
+	}
+	
+	$scope.approveFriendRequest = function approveFriendRequest(){
+		friendService.approveFriendRequest(function(data, status, headers, config){
+				alert('You approved this friend request!');
+			},function(error, status, headers, config){
+				alert(status + ': ' + error.message);
+			});
+	}
+	
+	$scope.rejectFriendRequest = function rejectFriendRequest(){
+		friendService.rejectFriendRequest(function(data, status, headers, config){
+				alert('You rejected this friend request!');
+			},function(error, status, headers, config){
+				alert(status + ': ' + error.message);
+			});
+	}
+	
+	$scope.sendFriendRequest = function sendFriendRequest(){
+		friendService.sendFriendRequest(function(data, status, headers, config){
+				alert('You send a friend request!');
+			},function(error, status, headers, config){
+				alert(status + ': ' + error.message);
+			});
+	}
+	
+//-------------------------------------------------------------------------------------------//	
+	// to do
 	$scope.searchUsersByName = function(){
-		userService.searchUsersByName($scope.inputName, function(data, status, headers, config){
+		userService.searchUsersByName($scope.inputName, 
+			function(data, status, headers, config){
 			$scope.allUsersData = data;
-			clearData();
 		},function(error, status, headers, config){
 			alert(status + ': ' + error.message);
 		});
 	}
 	
-	$scope.rejectFriendRequest = function (){
-		alert('You rejected this friend request! You can accept it later.');
-	}
-	
-	$scope.logout = function(){
-		userService.logout(
-			function (data) {
-				$scope.data = data;
-				alert(data.message + ' GoodBye!');
-				clearData();
-				clearLocalStorage();
-				$route.reload();
-				$location.path('/');
-			}, 
-			function (error, status) {
-				if(status == 401){
-					clearLocalStorage();
-				}
-				alert(status + ': ' + error.message);
-		});
-	}
-	// pagination to do
+	// pagination - to do
 	$scope.totalItems = 31;
 	$scope.currentPage = 1;
 	$scope.setPage = function (pageNo) {
