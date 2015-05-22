@@ -1,27 +1,40 @@
-<div ng-include="'templates/homeNavbarIncluded.html'"></div>
-<div id="userHomePage" class="row well" >
+<div  id="danger" ng-show="!isLoggedIn">
+	<h1>Users only!</h1>
+	<h2>Make registration to view the content!</h2>
+</div>
+<div ng-if="isLoggedIn">
+<div ng-include="'templates/userNavbar.html'"></div>
+<div id="userHomePage" class="row well" ng-if="isLoggedIn">
 	<hr />
-	<div class="input-group pull-right col-md-3">
-		<input type="search" placeholder="Search" class="form-control">
-			<span class="input-group-addon">
-				<i class="fa fa-search"></i>
-			</span>
+	<div class="pull-right ">
+		<form id="inputNameForm" name="inputNameForm">
+			<div class="input-group pull-right col-md-3">
+				<input type="search"
+					id="name"
+					name="name"
+					ng-model="inputName.name"
+					placeholder="Search user by name" 
+					class="form-control">
+					<span class="input-group-addon">
+						<i class="fa fa-search"></i>
+					</span>
+			</div>
+		</form>
+		<table id="searchNameResults" class="pull-right col-md-3">
+			<tr ng-repeat="user in allUsersData | filter:inputName.name">
+				<td>{{user.name}}</td>
+			</tr>
+		</table>
 	</div>
-	<em>page: {{currentPage}}</em>
+	<em>Hello, <strong>{{username}}</strong></em>
 	<h1 class="row well">News Feed <i class="fa fa-comments-o"></i></h1>
 	<hr />
-	<div>
+	<div class="col-md-7 col well text-center">
 		<p>All Posts</p>
+	</div>
+	<div class="col-md-5 col well text-center">
+		<p>All Friends</p>
 	</div>	
 </div>
-<div id="pagination">
-    <pagination boundary-links="true" total-items="totalItems"
-		ng-change="pageChanged()"
-		ng-model="currentPage" 
-		class="pagination-md" 
-		previous-text="&lsaquo;" 
-		next-text="&rsaquo;" 
-		first-text="&laquo;" 
-		last-text="&raquo;">
-	</pagination>
+<div ng-include="'templates/pagination.html'"></div>
 </div>

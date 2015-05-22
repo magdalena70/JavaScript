@@ -1,50 +1,34 @@
-<div id="userProfilePage">
-	<div id="userCoverImage" class="navbar navbar-fixed-top">
-		<div>
-			<img src="" alt="coverImage" width="100%" height="200"></img>
+<div  id="danger" ng-show="!isLoggedIn">
+	<h1>Users only!</h1>
+	<h2>Make registration to view the content!</h2>
+</div>
+<div ng-if="isLoggedIn">
+<div ng-include="'templates/userNavbar.html'"></div>
+<div id="coverImage" class="img-responsive">
+  <img src="{{coverImageData}}" alt="coverImage" height="250">
+</div>
+<div id="profileImage" class="img-responsive">
+	<img src="{{profileImageData}}" alt="profileImage" width="150" height="150" class="img-thumbnail">
+	<strong><em>{{name}}</em></strong>
+</div>
+<div id="userProfilePage" class="row well">
+	<h1 class="row well">News Feed <i class="fa fa-comments-o"></i></h1>
+	<hr />
+	<div class="col-md-7 col well text-center">
+		<p ng-click="getPostById()" class="bg-primary">Click to see Your Posts </p>
+		<p id="addNewPostLink" class="bg-info"><a href="#/user/addPost"> Add New Post</a></p>
+		<div id="comment" class="row well col-md-6 text-left">
+			<p><button type="submit" class="btn btn-default" ng-click="deletePostById()">X</button></p>
+			<p><a><em>{{username}}</em></a></p>
+			<p><em>{{postDate | date:'dd-MMM-yyyy'}}</em></p>
+			<p><strong>{{postContent}}</strong></p>
+			<p class="text-right"><a><i class="fa fa-thumbs-up"></i><em>Like </em></a><a><i class="fa fa-comment-o"></i><em>Comment: </em></a></p>
+			<p><button class="pull-right">Add Comment</button></p>
 		</div>
 	</div>
-	<div id="profileImage">
-		<img src="" alt="profileImage" width="100" height="100"></img><strong> Username {{userName}}</strong>
+	<div class="col-md-5 col well text-center">
+		<p>All Friends</p>
 	</div>
-	<nav>
-		<ul class="nav nav-justified navbar-fixed-top text-center">
-			<li>
-				<a href="#/user/home" class="bg-primary">
-					<i class="fa fa-home"></i> {{username}}'s home
-				</a>
-			</li>
-			<li>
-				<a href="#/user/comments" class="bg-primary">
-					<i class="fa fa-comments"></i> Comments
-				</a>
-			</li>
-			<li>
-				<a href="#/user/friendsRequests" class="bg-primary">
-					<i class="fa fa-user"></i><i class="fa fa-user"></i> Friends Requests
-				</a>
-			</li>
-			<li>
-				<a href="#/user/editProfile" class="bg-primary">
-					<i class="fa fa-cogs"></i> Edit Profile
-				</a>
-			</li>
-			<li>
-				<a href="#/user/editPassword" class="bg-primary">
-					<i class="fa fa-key"></i> Change Password
-				</a>
-			</li>
-			<li>
-				<a href="#/user/sendRequest" class="bg-primary">
-					<i class="fa fa-sign-in"></i> Send Request
-				</a>
-			</li>
-			<li class="bg-primary">
-				<button type="submit" class="btn btn-default" ng-click="logout()">
-					<i class="fa fa-lock"></i> Logout
-				</button>
-			</li>
-		</ul>
-	</nav>
 </div>
-<div id="userPosts" class="row well">Some Information...</div>
+<div ng-include="'templates/pagination.html'"></div>
+</div>

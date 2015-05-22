@@ -1,0 +1,33 @@
+<div  id="danger" ng-show="!isLoggedIn">
+	<h1>Users only!</h1>
+	<h2>Make registration to view the content!</h2>
+</div>
+<div ng-if="isLoggedIn">
+<div ng-include="'templates/userNavbar.html'"></div>
+	<div class="row well">
+		<form id="newPostForm" class="form-horizontal" name="newPostForm">
+			<div class="form-group">
+				<label for="postContent" class="col-md-2 control-label">Post Content*</label>
+				<div class="col-md-8">
+					<input type="text" class="form-control" 
+						id="postContent" 
+						name="postContent"
+						ng-model="newPostData.postContent"
+						placeholder="Post Content" required>
+					<p class="error" ng-show="newPostForm.postContent.$error.required">
+						<small><i class="fa fa-exclamation-triangle"></i> Post Content cannot be empty!</small>
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-10">
+					<button type="submit" class="btn btn-default col-md-3" 
+						ng-disabled="newPostForm.$invalid"
+						ng-click="addNewPost()">
+							<i class="fa fa-comments-o"></i> addNewPost
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

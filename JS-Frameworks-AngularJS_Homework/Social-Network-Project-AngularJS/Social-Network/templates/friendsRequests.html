@@ -1,4 +1,9 @@
-<div id="friendsRequestsPage" ng-include="'templates/homeNavbarIncluded.html'"></div>
+<div  id="danger" ng-show="!isLoggedIn">
+	<h1>Users only!</h1>
+	<h2>Make registration to view the content!</h2>
+</div>
+<div ng-if="isLoggedIn">
+<div id="friendsRequestsPage" ng-include="'templates/userNavbar.html'"></div>
 <div class="row well">
     <h1>Friends Requests <i class="fa fa-user"></i><i class="fa fa-user"></i></h1>
     <div class="col-md-11 row well">
@@ -12,4 +17,6 @@
 			<button class="btn btn-warning" ng-click="rejectFriendRequest()">Reject</button>
 		</div>
 	</div>
+</div>
+<div ng-include="'templates/pagination.html'"></div>
 </div>

@@ -20,7 +20,7 @@ var app = angular.module('socialNetworkApp', ['ngResource', 'ngRoute', 'ui.boots
 			templateUrl: 'templates/userHomePage.html',
 			controller: 'SocialNetworkController'
 		})
-		.when('/user/profile', {
+		.when('/user/' + localStorage['username'], {
 			templateUrl: 'templates/userProfile.html',
 			controller: 'SocialNetworkController'
 		})
@@ -34,6 +34,18 @@ var app = angular.module('socialNetworkApp', ['ngResource', 'ngRoute', 'ui.boots
 		})
 		.when('/user/friendsRequests', {
 			templateUrl: 'templates/friendsRequests.html',
+			controller: 'SocialNetworkController'
+		})
+		.when('/user/sendFriendRequest', {
+			templateUrl: 'templates/sendFriendRequest.html',
+			controller: 'SocialNetworkController'
+		})
+		.when('/user/addPost', {
+			templateUrl: 'templates/addPostForm.html',
+			controller: 'SocialNetworkController'
+		})
+		.when('/user/comments', {
+			templateUrl: 'templates/comments.html',
 			controller: 'SocialNetworkController'
 		})
 		.otherwise({redirectTo: '/'})

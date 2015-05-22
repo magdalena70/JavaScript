@@ -1,5 +1,3 @@
-'use strict'
-
 app.factory('userService', function userService($http, baseUrl) {
 	
     var serviceUrl = baseUrl + '/users';
@@ -43,7 +41,7 @@ app.factory('userService', function userService($http, baseUrl) {
 	function getUserFullData(success, error){
 		$http({
 			method: 'GET',
-			url: serviceUrl + '/' + localStorage['userName'],
+			url: serviceUrl + '/' + getUserName(),
 			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
 			data: {}
 		}).success(function (data, status, headers, config) {
@@ -53,13 +51,71 @@ app.factory('userService', function userService($http, baseUrl) {
 		});
 	}
 	
+	function searchUsersByName(inputName,success, error){
+		$http({
+			method: 'GET',
+			url: serviceUrl + '/search?searchTerm=' + inputName.name,
+			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
+			data: {}
+		}).success(function (data, status, headers, config) {
+            success(data, status, headers(), config);
+        }).error(function (data, status, headers, config) {
+			error(data, status, headers(), config);
+		});
+	}
+	
+	function getGender(){
+		if(localStorage['gender'] == 0){
+			return 'other';
+		}
+		if(localStorage['gender'] == 1){
+			return 'mail';
+		}
+		if(localStorage['gender'] == 2){
+			return 'femail';
+		}
+	}
+	
 	function isLoggedIn() {
         return localStorage['accessToken'];
     }
 	
+	function hasPendingRequest(){
+		if(localStorage["hasPendingRequest"] == 'true'){
+			return true;
+		}
+		if(localStorage["hasPendingRequest"] == 'false'){
+			return false;
+		}
+	}
+	
 	function getUserName() {
-		return localStorage['userName'];
-	}	
+		return localStorage['username'];
+	}
+	
+	function getName(){
+		return localStorage['name'];
+	}
+
+	function getEmail(){
+		return localStorage['email'];
+	}
+	
+	function getCoverImageData(){
+		if(localStorage['coverImageData'] == 'null'){
+			return 'img/banner1.png';
+		}else{
+			return localStorage['coverImageData'];
+		}
+	}
+	
+	function getProfileImageData(){
+		if(localStorage['profileImageData'] == 'null'){
+			return 'img/user.png';
+		}else{
+			return localStorage['profileImageData'];
+		}
+	}
 	
 	function logout(success, error){
         $http({
@@ -78,8 +134,15 @@ app.factory('userService', function userService($http, baseUrl) {
 		login: login,
 		register: register,
 		getUserFullData: getUserFullData,
+		searchUsersByName: searchUsersByName,
 		getUserName: getUserName,
+		getName: getName,
+		getEmail: getEmail,
+		getGender: getGender,
+		getCoverImageData: getCoverImageData,
+		getProfileImageData: getProfileImageData,
 		isLoggedIn: isLoggedIn,
+		hasPendingRequest: hasPendingRequest,
 		logout: logout
 	};
 })
