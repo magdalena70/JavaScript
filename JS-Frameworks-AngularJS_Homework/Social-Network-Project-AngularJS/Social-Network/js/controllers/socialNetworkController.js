@@ -15,6 +15,12 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 	function clearLocalStorage(){
 		localStorage.clear();
 	}
+	
+	function clearInputData(){
+		$scope.loginData = '';
+		$scope.userRegisterData = '';
+		$scope.postContentData = '';
+	}
 
 	$scope.login = function(){
         userService.login($scope.loginData,
@@ -23,10 +29,14 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
                 alert('Hello, ' + data.userName + '!');
                 localStorage['accessToken'] = data.access_token;
 				localStorage['username'] = data.userName;
+				clearInputData();
                 $location.path('/home');
             },
             function (error, status, headers, config) {
-                alert(status + ': ' + error.message);
+				angular.forEach(error, function(value, key) {
+					alert(key + '--> ' + value);					
+				});
+				clearInputData();
         });
     }
 	
@@ -34,14 +44,19 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 		userService.register($scope.userRegisterData,
 			function (data, status, headers, config) {
 				$scope.data = data;
-				alert('Hello' + data.userName + '!');
+				alert('Hello, ' + data.userName + '!');
 				localStorage['accessToken'] = data.access_token;
 				localStorage['username'] = data.userName;
 				localStorage['email'] = data.email;
+				clearInputData();
 				$location.path('/home');
 			}, 
 			function (error, status, headers, config) {
-				alert(status + ': ' + error.message);
+				alert(status + ': ' + error.message)
+				angular.forEach(error.modelState, function(value, key) {
+					alert(key + '--> ' + value);					
+				});
+				clearInputData();
 		});
 	}
 	
@@ -81,13 +96,14 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 	
 	// posts
 	$scope.addNewPost = function addNewPost(){
-		postService.addNewPost($scope.newPostData, 
+		postService.addNewPost($scope.postContentData, 
 			function(data, status, headers, config){
 				$scope.data = data;
 				localStorage["postId"] = data.id;
 				localStorage['postDate'] = data.date;
-				$route.reload();
+				clearInputData();
 				$location.path('/users/' + $scope.username);
+				$route.reload();
 			},function(error, status, headers, config){
 				alert(status + ': ' + error.message);
 			});
@@ -97,8 +113,8 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 		postService.getPostById(function(data, status, headers, config){
 				$scope.data = data;
 				localStorage["postContent"] = data.postContent;
-				$route.reload();
 				$location.path('/users/' + $scope.username);
+				$route.reload();
 			},function(error, status, headers, config){
 				alert(status + ': ' + error.message);
 			});
@@ -122,17 +138,26 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 			});
 	}
 	
+	//to do
 	$scope.getFriendRequests = function getFriendRequests(){
 		friendService.getFriendRequests(function(data, status, headers, config){
-				//to do
+				$scope.data = data;
+				localStorage['requestId'] = data.id;
+				localStorage['requestStatus'] = data.status;
+				localStorage['requestFromName'] = data.name;
+				localStorage['requestFromImage'] = data.profileImageData;
+				localStorage['requestFromGender'] = data.gender;
 			},function(error, status, headers, config){
-				alert(status + ': ' + error.message);
+				angular.forEach(error, function(value, key) {
+					alert(key + '--> ' + value);					
+				});
 			});
 	}
 	
 	$scope.approveFriendRequest = function approveFriendRequest(){
 		friendService.approveFriendRequest(function(data, status, headers, config){
 				alert('You approved this friend request!');
+				clearInputData();
 			},function(error, status, headers, config){
 				alert(status + ': ' + error.message);
 			});
@@ -141,6 +166,7 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 	$scope.rejectFriendRequest = function rejectFriendRequest(){
 		friendService.rejectFriendRequest(function(data, status, headers, config){
 				alert('You rejected this friend request!');
+				clearInputData();
 			},function(error, status, headers, config){
 				alert(status + ': ' + error.message);
 			});
@@ -149,6 +175,7 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 	$scope.sendFriendRequest = function sendFriendRequest(){
 		friendService.sendFriendRequest(function(data, status, headers, config){
 				alert('You send a friend request!');
+				clearInputData();
 			},function(error, status, headers, config){
 				alert(status + ': ' + error.message);
 			});

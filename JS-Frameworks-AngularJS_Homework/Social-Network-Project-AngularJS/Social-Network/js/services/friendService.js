@@ -1,13 +1,12 @@
 app.factory('friendService', function friendService($http, baseUrl) {
 
 	var serviceUrl = baseUrl + '/me/';
-	var headers = { 'Authorization': 'Bearer ' + localStorage['accessToken']};
 	
 	function getFriendRequests(success, error){
 		$http({
 			method: 'GET',
 			url: serviceUrl + 'requests',
-			headers: headers,
+			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
 			data: {}
 		}).success(function (data, status, headers, config) {
             success(data, status, headers(), config);
@@ -20,7 +19,7 @@ app.factory('friendService', function friendService($http, baseUrl) {
 		$http({
 			method: 'GET',
 			url: serviceUrl + 'friends',
-			headers: headers,
+			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
 			data: {}
 		}).success(function (data, status, headers, config) {
             success(data, status, headers(), config);
@@ -33,7 +32,7 @@ app.factory('friendService', function friendService($http, baseUrl) {
 		$http({
 			method: 'PUT',
 			url: serviceUrl + 'requests/' + localStorage['requestId'] + '?status=approved',
-			headers: headers,
+			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
 			data: {}
 		}).success(function (data, status, headers, config) {
             success(data, status, headers(), config);
@@ -46,7 +45,7 @@ app.factory('friendService', function friendService($http, baseUrl) {
 		$http({
 			method: 'PUT',
 			url: serviceUrl + 'requests/' + localStorage['requestId'] + '?status=rejected',
-			headers: headers,
+			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
 			data: {}
 		}).success(function (data, status, headers, config) {
             success(data, status, headers(), config);
@@ -58,8 +57,8 @@ app.factory('friendService', function friendService($http, baseUrl) {
 	function sendFriendRequest(newFriendName,success, error){
 		$http({
 			method: 'POST',
-			url: serviceUrl + 'requests/John',// newFriendName
-			headers: headers,
+			url: serviceUrl + 'requests/beautiful',// newFriendName
+			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
 			data: {}
 		}).success(function (data, status, headers, config) {
             success(data, status, headers(), config);

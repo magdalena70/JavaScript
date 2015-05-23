@@ -1,8 +1,7 @@
 app.factory('userService', function userService($http, baseUrl) {
 	
     var serviceUrl = baseUrl + '/users';
-	var headers = { 'Authorization': 'Bearer ' + localStorage['accessToken']};
-	
+    
     function login(loginData, success, error){
         $http({
 			method: 'POST',
@@ -43,7 +42,7 @@ app.factory('userService', function userService($http, baseUrl) {
         $http({
 			method: 'POST',
 			url: serviceUrl + '/logout',
-			headers: headers,
+			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
 			data: {}
 		}).success(function (data, status, headers, config) {
             success(data, status, headers(), config);
@@ -56,7 +55,7 @@ app.factory('userService', function userService($http, baseUrl) {
 		$http({
 			method: 'GET',
 			url: serviceUrl + '/' + getUserName(),
-			headers: headers,
+			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
 			data: {}
 		}).success(function (data, status, headers, config) {
             success(data, status, headers(), config);
@@ -69,7 +68,7 @@ app.factory('userService', function userService($http, baseUrl) {
 		$http({
 			method: 'GET',
 			url: serviceUrl + '/search?searchTerm=' + inputName.name,
-			headers: headers,
+			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
 			data: {}
 		}).success(function (data, status, headers, config) {
             success(data, status, headers(), config);

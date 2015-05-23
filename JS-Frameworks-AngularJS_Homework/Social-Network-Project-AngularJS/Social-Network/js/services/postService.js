@@ -1,15 +1,14 @@
 app.factory('postService', function postService($http, baseUrl) {
 
 	var serviceUrl = baseUrl + '/posts';
-	var headers = { 'Authorization': 'Bearer ' + localStorage['accessToken']};
 	
-	function addNewPost(newPostData, success, error){
+	function addNewPost(postContentData, success, error){
         $http({
 			method: 'POST',
 			url: serviceUrl,
-			headers: headers,
+			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
 			data: {
-				"postContent": 'Some text...',//newPostData.postContent
+				"postContent": 'tintiri mintiri..',//postContentData.postContent,
 				"username": localStorage['username']
 			}
 		}).success(function (data, status, headers, config) {
@@ -23,7 +22,7 @@ app.factory('postService', function postService($http, baseUrl) {
         $http({
 			method: 'GET',
 			url: serviceUrl + '/' + localStorage['postId'],
-			headers: headers,
+			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
 			data: {}
 		}).success(function (data, status, headers, config) {
             success(data, status, headers(), config);
@@ -36,7 +35,7 @@ app.factory('postService', function postService($http, baseUrl) {
         $http({
 			method: 'DELETE',
 			url: serviceUrl + '/' + localStorage['postId'],
-			headers: headers,
+			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
 			data: {}
 		}).success(function (data, status, headers, config) {
             success(data, status, headers(), config);
