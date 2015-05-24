@@ -53,11 +53,11 @@ app.factory('friendService', function friendService($http, baseUrl) {
 			error(data, status, headers(), config);
 		});
 	}
-	
+	//to do
 	function sendFriendRequest(newFriendName,success, error){
 		$http({
 			method: 'POST',
-			url: serviceUrl + 'requests/beautiful',// newFriendName
+			url: serviceUrl + 'requests/karamfil',// newFriendName
 			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
 			data: {}
 		}).success(function (data, status, headers, config) {
@@ -67,12 +67,25 @@ app.factory('friendService', function friendService($http, baseUrl) {
 		});
 	}
 	
+	function getRequestFromGender(){
+		if(localStorage['requestFromGender'] == 0){
+			return 'other';
+		}
+		if(localStorage['requestFromGender'] == 1){
+			return 'mail';
+		}
+		if(localStorage['requestFromGender'] == 2){
+			return 'femail';
+		}
+	}
+	
 	return{
 		getFriendRequests: getFriendRequests,
 		getOwnFriends: getOwnFriends,
 		approveFriendRequest: approveFriendRequest,
 		rejectFriendRequest: rejectFriendRequest,
-		sendFriendRequest: sendFriendRequest
+		sendFriendRequest: sendFriendRequest,
+		getRequestFromGender: getRequestFromGender
 	};
 
 });

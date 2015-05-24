@@ -6,9 +6,11 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 	$scope.profileImageData = userService.getProfileImageData(); // or null
 	$scope.gender = userService.getGender();
 	$scope.coverImageData = userService.getCoverImageData(); // or null
+	
 	$scope.isFriend = localStorage["isFriend"]; // true or false
 	$scope.hasPendingRequest = userService.hasPendingRequest(); // true or false
 	$scope.isLoggedIn = userService.isLoggedIn();
+	
 	$scope.postContent = localStorage['postContent'];
 	$scope.postDate = localStorage['postDate'];
 	
@@ -88,6 +90,7 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 				localStorage["coverImageData"] = data.coverImageData; // or null
 				localStorage["isFriend"] = data.isFriend; // true or false
 				localStorage["hasPendingRequest"] = data.hasPendingRequest; // true or false
+				$location.path('/users/' + $scope.username);
 				$route.reload();
 			},function(error, status, headers, config){
 				alert(status + ': ' + error.message);
@@ -119,9 +122,10 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 				alert(status + ': ' + error.message);
 			});
 	}
-	
+	//to do
 	$scope.deletePostById = function deletePostById(){
 		postService.deletePostById(function(data, status, headers, config){
+				console.log(data);
 				$location.path('/users/' + $scope.username);
 				$route.reload();
 			},function(error, status, headers, config){
@@ -138,15 +142,30 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 			});
 	}
 	
-	//to do
+	$scope.requestData = {
+		requestId: localStorage['requestId'],
+		requestStatus: localStorage['requestStatus'],
+		requestFromName: localStorage['requestFromName'],
+		requestFromImage: localStorage['requestFromImage'],
+		requestFromGender: friendService.getRequestFromGender(),
+		requestFromUsername: localStorage['requestFromUsername']
+	};
+	
 	$scope.getFriendRequests = function getFriendRequests(){
 		friendService.getFriendRequests(function(data, status, headers, config){
 				$scope.data = data;
-				localStorage['requestId'] = data.id;
-				localStorage['requestStatus'] = data.status;
-				localStorage['requestFromName'] = data.name;
-				localStorage['requestFromImage'] = data.profileImageData;
-				localStorage['requestFromGender'] = data.gender;
+				angular.forEach(data, function(value, key){
+					var requestData = value;
+					//console.log(requestData.user);
+					alert('You have friend request from: ' + requestData.user.name);
+					localStorage['requestId'] = requestData.id;
+					localStorage['requestStatus'] = requestData.status;
+					localStorage['requestFromName'] = requestData.user.name;
+					localStorage['requestFromImage'] = requestData.user.profileImageData;
+					localStorage['requestFromGender'] = requestData.user.gender;
+					localStorage['requestFromUsername'] = requestData.user.username;
+					$route.reload();
+				});
 			},function(error, status, headers, config){
 				angular.forEach(error, function(value, key) {
 					alert(key + '--> ' + value);					
@@ -157,7 +176,12 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 	$scope.approveFriendRequest = function approveFriendRequest(){
 		friendService.approveFriendRequest(function(data, status, headers, config){
 				alert('You approved this friend request!');
-				clearInputData();
+				console.log(data);
+				localStorage['hasPendingRequest'] = 'false';
+				if(localStorage['requestStatus']){
+					localStorage['requestStatus'] = 'approved';
+				}
+				$route.reload();
 			},function(error, status, headers, config){
 				alert(status + ': ' + error.message);
 			});
@@ -166,12 +190,13 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 	$scope.rejectFriendRequest = function rejectFriendRequest(){
 		friendService.rejectFriendRequest(function(data, status, headers, config){
 				alert('You rejected this friend request!');
-				clearInputData();
+				console.log(data);
+				$route.reload();
 			},function(error, status, headers, config){
 				alert(status + ': ' + error.message);
 			});
 	}
-	
+	//to do
 	$scope.sendFriendRequest = function sendFriendRequest(){
 		friendService.sendFriendRequest(function(data, status, headers, config){
 				alert('You send a friend request!');
