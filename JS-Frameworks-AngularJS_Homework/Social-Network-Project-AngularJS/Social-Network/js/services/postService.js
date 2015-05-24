@@ -2,13 +2,13 @@ app.factory('postService', function postService($http, baseUrl) {
 
 	var serviceUrl = baseUrl + '/posts';
 	
-	function addNewPost(postContentData, success, error){
+	function addNewPost(postInputContent, success, error){
         $http({
 			method: 'POST',
 			url: serviceUrl,
 			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
 			data: {
-				"postContent": 'tintiri mintiri..',//postContentData.postContent,
+				"postContent": postInputContent,
 				"username": localStorage['username']
 			}
 		}).success(function (data, status, headers, config) {

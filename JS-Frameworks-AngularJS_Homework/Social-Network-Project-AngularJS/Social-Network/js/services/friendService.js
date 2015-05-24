@@ -57,7 +57,7 @@ app.factory('friendService', function friendService($http, baseUrl) {
 	function sendFriendRequest(newFriendName,success, error){
 		$http({
 			method: 'POST',
-			url: serviceUrl + 'requests/karamfil',// newFriendName
+			url: serviceUrl + 'requests/someName',// newFriendName
 			headers: { 'Authorization': 'Bearer ' + localStorage['accessToken']},
 			data: {}
 		}).success(function (data, status, headers, config) {

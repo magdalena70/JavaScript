@@ -18,9 +18,8 @@
 		<p id="addNewPostLink" class="bg-info"><a href="#/addPost"> Add New Post</a></p>
 		<p ng-click="getPostById()" class="bg-primary">Click to see the New Post </p>
 		<div id="post" class="row well col-md-12 col-md-inset-1 text-left">
-			<p><button type="submit" class="btn btn-default" ng-click="deletePostById()">X</button></p>
-			<p><a><em>{{username}}</em></a></p>
-			<p><em>{{postDate | date:'dd-MMM-yyyy'}}</em></p>
+			<p><button type="submit" class="btn btn-warning" ng-click="deletePostById()">Delete</button></p>
+			<p><em>author: {{author}} {{postDate | date:'dd-MMM-yyyy'}}</em></p>
 			<p><strong>{{postContent}}</strong></p>
 			<p class="text-right"><a><i class="fa fa-thumbs-up"></i><em>Like </em></a><a><i class="fa fa-comment-o"></i><em>Comment: </em></a></p>
 			<p><button class="pull-right">Add Comment</button></p>

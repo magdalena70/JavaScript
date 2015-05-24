@@ -63,7 +63,7 @@ app.factory('userService', function userService($http, baseUrl) {
 			error(data, status, headers(), config);
 		});
 	}
-	
+	//to do
 	function searchUsersByName(inputName,success, error){
 		$http({
 			method: 'GET',

@@ -1,4 +1,5 @@
 app.controller('SocialNetworkController', function($scope, $location, $route, userService, postService, friendService, $log){
+
 	$scope.username = userService.getUserName();
 	$scope.id = localStorage["id"];
 	$scope.name = userService.getName();
@@ -13,6 +14,7 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 	
 	$scope.postContent = localStorage['postContent'];
 	$scope.postDate = localStorage['postDate'];
+	$scope.author = localStorage['author'];
 	
 	function clearLocalStorage(){
 		localStorage.clear();
@@ -81,8 +83,10 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 	
 	$scope.getUserFullData = function(){
 		userService.getUserFullData(function(data, status, headers, config){
-				alert('Welcome in profile page!');
+				$location.path('/home');
+				$location.path('/users/' + localStorage.username);
 				$scope.data = data;
+				localStorage['username'] = $scope.username;
 				localStorage["userId"] = data.id;
 				localStorage["name"] = data.name;
 				localStorage["profileImageData"] = data.profileImageData; // or null
@@ -90,7 +94,6 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 				localStorage["coverImageData"] = data.coverImageData; // or null
 				localStorage["isFriend"] = data.isFriend; // true or false
 				localStorage["hasPendingRequest"] = data.hasPendingRequest; // true or false
-				$location.path('/users/' + $scope.username);
 				$route.reload();
 			},function(error, status, headers, config){
 				alert(status + ': ' + error.message);
@@ -98,34 +101,43 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 	}
 	
 	// posts
+	
 	$scope.addNewPost = function addNewPost(){
-		postService.addNewPost($scope.postContentData, 
+		var postContent = document.getElementById('postInputContent').value;
+		postService.addNewPost(postContent,
 			function(data, status, headers, config){
-				$scope.data = data;
 				localStorage["postId"] = data.id;
 				localStorage['postDate'] = data.date;
+				localStorage['author'] = $scope.username;
+				$location.path('/users/' + localStorage.username);
+				$route.reload();
 				clearInputData();
-				$location.path('/users/' + $scope.username);
+			},function(error, status, headers, config){
+				alert(status + ': ' + error.message)
+				angular.forEach(error.modelState, function(value, key) {
+					alert(key + '--> ' + value);					
+				});
+				clearInputData();
+			});
+	}
+	
+	$scope.getPostById = function getPostById(){
+		postService.getPostById(function(data, status, headers, config){
+				localStorage["postContent"] = data.postContent;
+				$location.path('/users/' + localStorage.username);
 				$route.reload();
 			},function(error, status, headers, config){
 				alert(status + ': ' + error.message);
 			});
 	}
 	
-	$scope.getPostById = function getPostById(){
-		postService.getPostById(function(data, status, headers, config){
-				$scope.data = data;
-				localStorage["postContent"] = data.postContent;
-				$location.path('/users/' + $scope.username);
-				$route.reload();
-			},function(error, status, headers, config){
-				alert(status + ': ' + error.message);
-			});
-	}
-	//to do
 	$scope.deletePostById = function deletePostById(){
 		postService.deletePostById(function(data, status, headers, config){
-				console.log(data);
+				alert('removed successfully');
+				localStorage['postContent'] = '';
+				localStorage["postId"] = '';
+				localStorage['postDate'] = '';
+				localStorage['author'] = '';
 				$location.path('/users/' + $scope.username);
 				$route.reload();
 			},function(error, status, headers, config){
@@ -147,7 +159,7 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 		requestStatus: localStorage['requestStatus'],
 		requestFromName: localStorage['requestFromName'],
 		requestFromImage: localStorage['requestFromImage'],
-		requestFromGender: friendService.getRequestFromGender(),
+		requestFromGender: localStorage['requestStatus'],
 		requestFromUsername: localStorage['requestFromUsername']
 	};
 	
@@ -156,7 +168,6 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 				$scope.data = data;
 				angular.forEach(data, function(value, key){
 					var requestData = value;
-					//console.log(requestData.user);
 					alert('You have friend request from: ' + requestData.user.name);
 					localStorage['requestId'] = requestData.id;
 					localStorage['requestStatus'] = requestData.status;
@@ -181,6 +192,7 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 				if(localStorage['requestStatus']){
 					localStorage['requestStatus'] = 'approved';
 				}
+				$location.path('/users/' + localStorage.username);
 				$route.reload();
 			},function(error, status, headers, config){
 				alert(status + ': ' + error.message);
@@ -190,7 +202,7 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 	$scope.rejectFriendRequest = function rejectFriendRequest(){
 		friendService.rejectFriendRequest(function(data, status, headers, config){
 				alert('You rejected this friend request!');
-				console.log(data);
+				$location.path('/users/' + localStorage.username);
 				$route.reload();
 			},function(error, status, headers, config){
 				alert(status + ': ' + error.message);

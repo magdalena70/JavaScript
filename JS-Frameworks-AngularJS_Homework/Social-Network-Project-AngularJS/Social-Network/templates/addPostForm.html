@@ -6,14 +6,14 @@
 <div ng-include="'templates/userNavbar.html'"></div>
 	<form id="newPostForm" class="form-horizontal" name="newPostForm">
 		<div class="form-group">
-			<label for="postContent" class="col-md-2 control-label">Post Content*</label>
+			<label for="postInputContent" class="col-md-2 control-label">Post Content*</label>
 			<div class="col-md-8">
-				<input type="text" class="form-control" 
-					id="postContent" 
-					name="postContent"
-					ng-model="postContentData.postContent"
+				<input type="text" class="form-control"
+					id="postInputContent" 
+					name="postInputContent"
+					ng-model="postInputContent"
 					placeholder="Post Content" required>
-				<p class="error" ng-show="newPostForm.postContent.$error.required">
+				<p class="error" ng-show="newPostForm.postInputContent.$error.required">
 					<small><i class="fa fa-exclamation-triangle"></i> Required</small>
 				</p>
 			</div>
@@ -22,7 +22,7 @@
 			<div class="col-md-offset-2 col-md-10">
 				<button type="submit" class="btn btn-default col-md-3" 
 					ng-disabled="newPostForm.$invalid"
-					ng-click="addNewPost(postContentData)">
+					ng-click="addNewPost()">
 						<i class="fa fa-comments-o"></i> Add New Post
 				</button>
 			</div>
