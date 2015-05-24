@@ -158,8 +158,8 @@ app.controller('SocialNetworkController', function($scope, $location, $route, us
 		requestId: localStorage['requestId'],
 		requestStatus: localStorage['requestStatus'],
 		requestFromName: localStorage['requestFromName'],
+		requestFromGender: friendService.getRequestFromGender(),
 		requestFromImage: localStorage['requestFromImage'],
-		requestFromGender: localStorage['requestStatus'],
 		requestFromUsername: localStorage['requestFromUsername']
 	};
 	

@@ -68,7 +68,7 @@ app.factory('friendService', function friendService($http, baseUrl) {
 	}
 	
 	function getRequestFromGender(){
-		if(localStorage['requestFromGender'] == 0){
+		if(localStorage['requestFromGender'] == 0 || localStorage['requestFromGender'] == '0'){
 			return 'other';
 		}
 		if(localStorage['requestFromGender'] == 1){
