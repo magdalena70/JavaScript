@@ -1,4 +1,2 @@
-# JavaScript
+# ECMAScript 6
 
-JavaScriptBasic_Homework<br/>
-JavaScriptAdvanced_Homework<br/>
