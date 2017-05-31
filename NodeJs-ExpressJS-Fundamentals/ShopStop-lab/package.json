@@ -1,0 +1,13 @@
+{
+  "name": "shop-stop",
+  "version": "0.0.1",
+  "description": "Shop Stop - LAB",
+  "main": "index.js",
+  "engine": "7.1.0",
+  "scripts": {},
+  "keywords": [
+    "lab"
+  ],
+  "author": "IK",
+  "license": "MIT"
+}
