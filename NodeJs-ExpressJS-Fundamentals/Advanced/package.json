@@ -1,0 +1,11 @@
+{
+  "name": "security",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "engine": "7.1.0",
+  "scripts": {
+  },
+  "author": "IK",
+  "license": "MIT"
+}
