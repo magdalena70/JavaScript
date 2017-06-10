@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ShopStop</title>
+    <link rel='shortcut icon' type='image/x-icon' href='/content/images/favicon.ico' />
+    <link type="text/css" href="/content/styles/site.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <ul>
+                <li><a href="/"></a>Home Page</li>
+                <li><a href="/products/add">Add Product</a></li>
+                <li><a href="/category/add">Add Category</a></li>                                
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form id="add-category-form" method="post" class="center-form">
+            <h2>Add Category</h2>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" class="input-field" />
+            </div>
+            <div class="form-group">
+                <input type="submit" id="add-category-btn" value="Add" class="btn" />
+            </div>
+        </form>
+    </main>
+</body>
+</html>
