@@ -1,0 +1,12 @@
+extends ../layout.pug
+
+block content
+  h2 All Articles
+  p
+    a(href="/article/add") Add Article    
+  hr
+  each article in articles
+    div.article-div
+      h3= article.name
+      img(src=article.image, alt="article-img")
+      p= article.description

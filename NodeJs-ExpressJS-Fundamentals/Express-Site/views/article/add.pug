@@ -1,0 +1,12 @@
+extends ../layout.pug
+
+block content
+  h2 Add Article    
+  form(method="post", enctype="multipart/form-data")
+    label(for="name") Name:
+    input(type="text", name="name", id="name")
+    label(for="description") Description:
+    textarea(name="description", rows="10", id="description")
+    label(for="image") Image:
+    input(type="file", name="image", id="image", accept=".jpg,.png,.jpeg")
+    input(type="submit", value="Add")

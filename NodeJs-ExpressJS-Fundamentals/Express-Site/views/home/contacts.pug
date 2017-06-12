@@ -1,0 +1,10 @@
+extends ../layout.pug
+
+block content
+  h2 Contact Us
+  form
+    label(for="name") Your name:
+    input(type="text", name="name", id="name")
+    label(for="text") Message:
+    textarea(name="text", rows="10", id="text")
+    input(type="submit", value="Send")

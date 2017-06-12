@@ -1,0 +1,15 @@
+extends ../layout.pug
+
+block content
+  h1 Home Page
+  p
+    a(href="recipe/add") Add Recipe
+    a(href="article/add") Add Article 
+    a(href="article/all") All Article           
+  
+  h2 All Recipes
+  each recipe in recipes
+    div.recipe-div
+      h3= recipe.name
+      img(src=recipe.image, alt="recipe-img")
+      p= recipe.description

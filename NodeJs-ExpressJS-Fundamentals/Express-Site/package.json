@@ -1,0 +1,15 @@
+{
+  "name": "express-site",
+  "version": "0.0.1",
+  "description": "expres.js-exercises",
+  "main": "index.js",
+  "author": "MP",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "1.17.2",
+    "express": "4.15.3",
+    "mongoose": "4.10.5",
+    "multer": "1.3.0",
+    "pug": "2.0.0-rc.2"
+  }
+}
