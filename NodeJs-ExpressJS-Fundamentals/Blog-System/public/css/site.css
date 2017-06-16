@@ -1,0 +1,82 @@
+body, div, header, main, footer, ul, li , a, p{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: gray;
+}
+
+.username{
+    font-style: italic;
+}
+
+.error-msg{
+    color: yellow;
+    background-color: red;
+    padding: 10px;
+}
+
+.required{
+    color: red;
+    font-weight: bold;
+}
+
+.container{
+    text-align: center;
+}
+
+header{
+    background-color: gray;
+}
+
+main, footer{
+    border: 1px solid gray;    
+}
+
+main{
+    width: 80%;
+    margin: 10px auto;
+    padding: 3%;
+}
+
+form{
+    width: 50%;
+    margin: auto;
+}
+
+label, input{
+    width: 100%;
+    padding: 6px;
+    margin: 6px 0;
+    border-radius: 8px;
+}
+
+input[type="submit"]{
+    width: 50%;
+    margin: auto;
+    background-color: greenyellow;
+    border-color: greenyellow;
+    font-weight: bold;
+}
+
+.menu{
+    padding-top: 5%;
+    padding-bottom: 2%;
+}
+
+.menu li{
+    padding: 10px;
+    margin: 10px auto;
+    list-style-type: none;
+    display: inline-block;
+    border: 1px solid greenyellow; 
+}
+
+.menu li a{
+    text-decoration: none;
+    font-size: 20px; 
+    color: greenyellow;
+}
+
+footer{
+    padding: 2%;
+}
