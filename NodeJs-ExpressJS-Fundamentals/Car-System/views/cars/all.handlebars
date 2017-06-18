@@ -1,0 +1,45 @@
+<h2>All Cars</h2>
+
+<form>
+    <label for="search">Search cars by &quot;make&quot;</label>
+    <input type="text" name="search" id="search"/>
+    <input type="submit" value="search"/>    
+</form>
+
+<ul class="menu">
+    {{#if hasPrevPage}}
+        <li><a href="/cars/all?page={{prevPage}}&search={{search}}">&lt;&lt;</a></li>
+    {{/if}}
+    page {{page}}
+    {{#if hasNextPage}}
+        <li><a href="/cars/all?page={{nextPage}}&search={{search}}">&gt;&gt;</a></li> 
+    {{/if}}   
+</ul>
+
+{{#each cars}}
+    {{#if make}}
+        <div class="car-div">
+            <h3>{{make}} {{model}} - {{year}} year</h3>
+            <div class="car-img-box" >
+                <img src="{{image}}" alt="car-img"/>
+            </div>
+            {{#if power}}
+                <p>power: {{power}}</p>
+            {{/if}}
+            <p>price per day: {{pricePerDay}} BGN</p>
+            <p>is rented: {{isRented}}</p>
+            {{#if ../currentUser}}
+                {{#if isRented}}
+                {{else}}
+                <form action="/cars/rent/{{this._id}}" method="POST">
+                    <label for="days">Enter days:</label>
+                    <input type="number" name="days" id="days" required="required"/>
+                    <input type="submit" value="Rent"/>
+                </form>
+                {{/if}}
+            {{/if}}
+        </div>
+    {{/if}}
+{{else}}
+    <h3>No cars</h3>
+{{/each}}

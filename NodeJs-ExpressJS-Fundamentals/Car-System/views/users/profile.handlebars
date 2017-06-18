@@ -1,0 +1,10 @@
+<h2>User Profile</h2>
+
+<h3>Rentings:</h3>
+{{#each rentings}}
+    <p>price: {{totalPrice}} BGN for {{days}} day(s)</p>
+    <p>rented on: {{startDate}}</p>
+    <p>car: {{car.make}} {{car.model}}</p>
+{{else}}
+    <p>No rentings</p>
+{{/each}}

@@ -1,0 +1,47 @@
+<h2>Add new car</h2>
+
+<form method="POST">
+    <label for="make">Make</label>
+    <input type="text" 
+        name="make" 
+        id="make" 
+        value="{{make}}" 
+        required="required"/>
+
+    <label for="model">Model</label>
+    <input type="text" 
+        name="model" 
+        id="model" 
+        value="{{model}}" 
+        required="required"/>
+
+    <label for="year">Year</label>
+    <input type="number" 
+        name="year" 
+        
+        id="year" 
+        value="{{year}}" 
+        required="required"/>
+
+    <label for="price-per-day">Price per day</label>
+    <input type="number" 
+        name="pricePerDay" 
+        id="price-per-day" 
+        value="{{pricePerDay}}" 
+        required="required"/>
+
+    <label for="power">Power</label>
+    <input type="number" 
+        name="power" 
+        id="power" 
+        value="{{power}}"/>
+
+    <label for="image">Image</label>
+    <input type="text" 
+        name="image" 
+        id="image"
+        value="{{image}}" 
+        required="required"/>
+        
+    <input type="submit" value="Add"/>    
+</form>
