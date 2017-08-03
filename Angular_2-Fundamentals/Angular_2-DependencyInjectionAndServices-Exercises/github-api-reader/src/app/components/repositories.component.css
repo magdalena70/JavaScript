@@ -1,0 +1,11 @@
+ul li{
+    list-style: none;
+}
+
+.user-repos-data{
+    display: inline-block;
+    width: 29%;
+    border-bottom: 1px solid gray;
+    margin: auto;
+    padding: 15px;
+}

@@ -1,0 +1,11 @@
+<button (click)="showRepos()">{{reposBtnTitle}}</button>
+<div *ngIf="showList">
+    <h3>User's Repos Data:</h3>
+    <ul>
+        <li *ngFor="let repo of reposData" class="user-repos-data">
+            <p>{{repo?.name}} - 
+                <a href="{{repo?.html_url}}" target="blanc">See more...</a>
+            </p>
+        </li>
+    </ul>
+</div>

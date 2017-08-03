@@ -1,0 +1,25 @@
+h2, h3 {
+    text-align: center;
+    border-bottom: 1px solid gray;
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    max-width: 30%;
+    margin: 10px;
+}
+
+.user-profile-data {
+    text-align: center;
+}
+
+.user-followers-data {
+    display: inline-block;
+    width: 29%;
+    border: 1px solid gray;
+    margin: auto;
+    padding: 20px;
+}

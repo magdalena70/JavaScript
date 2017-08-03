@@ -1,0 +1,32 @@
+<div>
+    <h2>{{title}}</h2>
+    <div class="user-profile-data">
+        <h3>User Profile Data:</h3>
+        <ul>
+            <li>Name: {{profileData?.name}}</li>
+            <li>Username: {{profileData?.login}}</li>
+            <li>
+                <img src="{{profileData?.avatar_url}}" alt="avatar" />
+            </li>
+            <li>
+                Followers: {{profileData?.followers}} -
+                <button (click)="showFollowers()">{{followersBtnTitle}}</button>
+            </li>
+            <li>
+                Public repos: {{profileData?.public_repos}} -
+                <repositories (repositoriesData)="dataReceived($event)"></repositories>
+            </li>
+        </ul>
+    </div>
+
+    <div *ngIf="showList">
+        <h3>User's followers Data:</h3>
+        <ul>
+            <li *ngFor="let follower of followersData" class="user-followers-data">
+                <p>{{follower?.login}}</p>
+                <img src="{{follower?.avatar_url}}" alt="avatar" /> 
+                <a href="{{follower?.html_url}}" target="blanc">GitHub</a>               
+            </li>
+        </ul>
+    </div>
+</div>
