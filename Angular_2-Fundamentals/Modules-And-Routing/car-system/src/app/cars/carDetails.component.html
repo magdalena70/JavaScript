@@ -1,0 +1,8 @@
+<div>
+    <h2>Details</h2>
+    <h3>{{car.make}} {{car.model}}</h3>
+    <div>
+        <img src="{{car?.imageUrl || carDefaultImageUrl}}" alt="car-img"/>
+    </div>
+    <p>Posted on {{car.date.toString(s).slice(0, 15)}} year</p>
+</div>
