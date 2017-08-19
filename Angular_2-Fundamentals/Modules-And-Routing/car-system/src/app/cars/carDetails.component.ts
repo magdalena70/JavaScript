@@ -18,8 +18,8 @@ export class CarDetailsComponent {
         this.carId = this.route.snapshot.paramMap.get('id');
         this.car = this.carsData
             .getCars()
-            .filter((carObj) => {    
+            .filter((carObj) => {
                 return carObj.id === parseInt(this.carId);
             })[0];
-    }   
+    }
 }

@@ -1,0 +1,18 @@
+<div>
+    <h2>Owner details</h2>
+    <div>
+        <h3>{{owner.name}}</h3>
+        <div>
+            <img src="{{owner?.imageUrl || ownerDefaultImageUrl}}" alt="owner-img"/>
+        </div>
+        <div>
+            <h4>Cars:</h4>
+            <ul>
+                <li *ngFor="let car of ownerCars">
+                    <p>{{car.make}} {{car.model}}</p>
+                    <p><a routerLink="/cars/details/{{car.id}}">Details</a></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

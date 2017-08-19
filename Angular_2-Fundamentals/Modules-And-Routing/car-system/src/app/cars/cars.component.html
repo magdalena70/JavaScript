@@ -1,9 +1,20 @@
 <div>
-    <h2>{{title}}</h2>
+    <h2>{{title}}: {{allCarsLength}}</h2>
+    <div>
+        <button (click)="sortBy('make')">Sort cars by make</button>
+        <button (click)="sortBy('model')">Sort cars by model</button>
+        <button (click)="sortBy('date')">Sort cars by date</button>                
+    </div>
     <ul>
         <li *ngFor="let car of cars">
             <h3>{{car.make}} {{car.model}}</h3>
+            <p><small> on: {{car.date | date}}</small></p>
             <p><a routerLink="/cars/details/{{car.id}}">Learn more &#10148;</a></p>
         </li>
     </ul>
+    <div class="pagination">
+        <button (click)="prevPage()" *ngIf="page > 1">&laquo; Prev</button>
+        <span>{{page}}</span>        
+        <button (click)="nextPage()" *ngIf="allCarsLength > page * 3">Next &raquo;</button>
+    </div>
 </div>

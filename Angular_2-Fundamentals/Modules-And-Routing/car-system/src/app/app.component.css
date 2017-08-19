@@ -6,3 +6,19 @@ footer{
      border-top: 1px solid black;
      text-align: center;
 }
+
+nav{
+    margin: 10px;
+}
+
+nav a{
+    color: goldenrod;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px;
+}
+
+nav a:hover{
+    color: black;
+    border-color: goldenrod;
+}

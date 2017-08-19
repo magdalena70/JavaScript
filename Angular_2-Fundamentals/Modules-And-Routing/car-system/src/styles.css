@@ -8,11 +8,38 @@ li{
     list-style: none;
     display: inline-block;
     width: 30%;
-    border: 1px solid goldenrod;
+    border: 1px solid black;
     padding: 1px;
     margin: 1%;
 }
 
 img{
     width: 90%;
+}
+
+button{
+    padding: 8px;
+    border: 1px solid goldenrod;
+    border-radius: 8px;
+    margin: 5px;
+    background-color: transparent; 
+    color: black;
+}
+
+button:hover{
+    border-color: black;    
+    color: goldenrod;
+}
+
+a{
+    color: gold;
+}
+
+a:hover{
+    color: goldenrod;
+}
+
+.pagination{
+    text-align: center;
+    margin: 1%;
 }

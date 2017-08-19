@@ -15,9 +15,9 @@ export class HomeComponent {
 
     constructor(private carsData: CarsData){
         this.topFiveCars = this.carsData
-            .getCars()
+            .getCars(0, 5)
             .sort((a, b) => {
                 return new Date(b.date).getTime() - new Date(a.date).getTime();
-            }).slice(0,5);
+            });
     }
 }

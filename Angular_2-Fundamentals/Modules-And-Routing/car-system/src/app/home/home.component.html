@@ -5,7 +5,7 @@
         <div class="image-box">
             <img src="{{car?.imageUrl || carDefaultImageUrl}}" alt="car-img"/>
         </div>
-        <p>Posted on {{car.date.toString(s).slice(0, 15)}} year</p>
+        <p>Created on {{car.date.toString(s).slice(0, 15)}} year</p>
         <p><a routerLink="/cars/details/{{car.id}}">Details &#10148;</a></p>
     </li>
 </ul>

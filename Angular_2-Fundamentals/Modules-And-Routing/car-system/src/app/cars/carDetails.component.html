@@ -4,5 +4,12 @@
     <div>
         <img src="{{car?.imageUrl || carDefaultImageUrl}}" alt="car-img"/>
     </div>
-    <p>Posted on {{car.date.toString(s).slice(0, 15)}} year</p>
+    <p>Created on {{car.date.toString(s).slice(0, 15)}} year</p>
+    <p>color: {{car.color}}</p>
+    <p>engine: {{car.engine}}</p>
+    <p>
+        <span>owner {{car.owner}}</span>
+        <a routerLink="/owners/details/{{car.ownerId}}">More info...</a>
+    </p>    
+    <p>description: {{car.description}}</p>       
 </div>
